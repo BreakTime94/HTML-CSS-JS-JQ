@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td><input type="text" placeholder="아이디" tabindex="1" autofocus name="id" autocomplete="off" pattern="[a-z]{4,8}"></td> <!-- 창을 키면 자동으로 이 칸에 포커스가 맞춰짐, 자동완성 꺼짐-->
+                <td rowspan="2"><button tabindex="2">로그인</button></td> <!-- tabindex = 2로 주면 tab을 누를 때, 우선순위가 밀림-->
+            </tr>
+            <tr>
+                <td><input type="password" placeholder="비밀번호" tabindex="1" name="pw"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

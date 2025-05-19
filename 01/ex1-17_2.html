@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gnb {list-style: none;}
+        .gnb a {text-decoration: none; color: #222;} 
+        .gnb > li{display: inline-block; border: 1px solid #222; padding: 16px 48px;}
+        .gnb > li:hover {background: #ddd;}
+        /* .gnb > li ul {display: none;} */
+        .gnb > li ul {display: none; position: absolute; padding: 0; background: #fff;}
+        .gnb > li :hover ul, .gnb > li a:focus + ul {display: block;}
+    </style>
+</head>
+<body>
+    <ul class="gnb">
+        <li> <a href ="#">메뉴1</a>
+            <ul>
+                <li><a href="#">메뉴1_1</a></li>
+                <li><a href="#">메뉴1_2</a></li>
+                <li><a href="#">메뉴1_3</a></li>
+            </ul>
+        </li>
+        <li> <a href ="#">메뉴2</a>
+            <ul>
+                <li><a href="#">메뉴2_1</a></li>
+                <li><a href="#">메뉴2_2</a></li>
+                <li><a href="#">메뉴2_3</a></li>
+            </ul>
+        </li>
+        <li> <a href ="#">메뉴3</a>
+            <ul>
+                <li><a href="#">메뉴3_1</a></li>
+                <li><a href="#">메뉴3_2</a></li>
+                <li><a href="#">메뉴3_3</a></li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>

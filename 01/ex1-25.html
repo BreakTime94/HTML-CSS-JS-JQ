@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :required {box-shadow: 0 0 2px 2px red;}
+    </style>
+</head>
+<body>
+    <form>
+        <label>text <input type="text" name="text" value="가나다라" maxlength="5"></label> <!--value는 기본값, maxlength는 최대길이값 제한-->
+        password <input type="password" name="pw" required> <!--required 빈칸 방지용-->
+        <hr>
+        검색 <input type="search" name="search"> <!--검색-->
+        이메일 <input type="email" name="email"> <!--검색-->
+        전화번호 <input type="tel" name="tel"> <!--얘는 웹보다는, 모바일에서 사용한다.+-->
+        <hr>
+        컬러선택 <input type="color" name="color">
+        범위선택 <input type="range" name="range" min="1" max="5" step="2">
+        숫자 <input type="number" name="number" min="10" max="100" step="5">
+        <hr>
+        <input type="submit" value="전송">
+    </form>
+
+    <form>
+        <h3>radio</h3>
+        <p>지역 선택</p>
+        <label>서울 <input type="radio" name="area" value="서울" ></label> <!-- label은 버튼뿐만이 아니라 저 범위를 클릭해도 선택이 되게 해주는 역할-->
+        <label for="kk">경기 <input type="radio" name="area" value="경기" id="kk" >
+        <label>인천 <input type="radio" name="area" value="인천" checked></label> <!-- checked는 2개 이상 해도 마지막 checked를 확인한다.-->
+        <hr>
+        <h3>checkbox</h3>
+        <p>피자 토핑</p>
+        <label>모든 토핑<input type="checkbox" name="topping" value="all" id="toppingAll" checked></label><br>
+        <label>페퍼로니<input type="checkbox" name="topping" value="pp"></label><br>
+        <label>포테이토<input type="checkbox" name="topping" value="pt"></label><br>
+        <label>고구마<input type="checkbox" name="topping" value="sp"></label>
+        <hr>
+        <input type="reset" value="초기화">
+        <input type="button" value="버튼" onclick="alert(prompt('이름을 입력하세요.') + '님 환영합니다.')">
+        <input type="image" src="images/bt.png" alt="검색">
+        <button><img src="images/bt.png" alt="검색"></button>
+        <button>전송</button>
+    </form>
+    <script>
+        const all = document.querySelector("#toppingAll");
+        console.log(all);
+        all.addEventListener("change", e =>{
+            // console.log(all.checked)
+            const toppings = document.querySelectorAll("[name = 'topping']");
+            for(let i = 0; i < toppings.length; i++) {
+                toppings[i].checked = all.checked;
+            }
+        });
+    </script>
+</body>
+</html>

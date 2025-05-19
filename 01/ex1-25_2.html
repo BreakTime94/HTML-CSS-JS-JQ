@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <!--file, hidden, 시간/날짜 form 관련 속성은 진짜 엄청 많다!-->
+        <input type="hidden" name="hid1" value="myvalue"> <!--쿼리에는 포함되어있지만 화면에는 보이지않게 하는 것-->
+        <input type="file" name="file" multiple accept="image/png, image/jpeg,"> <!--multiple을 사용하면 여러 파일 전달 가능, 파일 확장자 먼저 보여주기 가능, 다만 유효성 검사는 JS에서 진행한다.--> 
+        <hr>
+        <input type="month" name="month">
+        <input type="date" name="date">
+        <input type="datetime-local" name="datetime-local">
+        <input type="time" name="time">
+        <input type="week" name="week">
+        <button>전송</button>
+    </form>
+    <!--
+        input에 사용가능한 추가속성
+        required : 필수속성 
+        readonly : 읽기전용
+        disabled : 접근불가
+        autocomplete : 자동완성
+        novalidate : 유효성 검증무시
+    -->
+</body>
+</html>
