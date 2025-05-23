@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {text-align: center;}
+        .common {
+            display: inline-block; width: 130px; height: 130px; border-radius: 50%; border: 1px solid;
+            background: url(https://media.istockphoto.com/id/1395632555/ko/%EB%B2%A1%ED%84%B0/%ED%99%94%EB%A0%A4%ED%95%9C-%EC%86%90-%EC%95%84%EC%9D%B4%EC%BD%98-%EC%84%B8%ED%8A%B8.jpg?s=612x612&w=0&k=20&c=pEfYEN6XdnltPxfKs598-Hi2qzpFIofcsoueJaXw_Ow=) no-repeat; 
+            text-indent: -9999px;
+            background-position-y:-241px;
+        }
+        .s {background-position-x: -430px;}
+        .r {background-position-x: -51px;}
+        .p {background-position-x: -241px;}
+        /* body {background: url(https://i.namu.wiki/i/AbMeUYKvB6f_yKGKOiQwXTeR98Sn3KP8cndGMEMbdS5ng-U3QIJwaguqm0lQR7wX5KtN368hN22LxkvHuUEuEwRggEA6j_LvpZhSPx4mvlwpTz2EocN1RWEwWa5mmuuY-QXfzEa3LFkX-IMYU1SNMg.webp);} */
+        .result-icon {display: inline-block; width: 130px; height: 130px; border: 1px solid; 
+            border-radius: 50%; font-size: 130px;
+        }
+        .result-icon i {float: left;}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div> <!--wrapping-->
+        <div> <!--가위바위보 구간-->
+            <a href="" class="common s">가위</a>
+            <a href="" class="common r">바위</a>
+            <a href="" class="common p">보</a>
+        </div>
+        <hr> <!--가로선(기본값 회색)-->
+        <div>
+            <div class="result-icon"><i class="fa-regular fa-circle-question"></i></div>
+            <div class="result-icon"><i class="fa-regular fa-circle-question"></i></div>
+        </div>
+        <hr>
+        <div>
+            <h2></h2>
+            <h3>승 <span>0</span> 무 <span>0</span> 패 <span>0</span></h3>
+        </div>
+    </div>
+    <script>
+        var v = 0;
+        var l = 0;
+        var d = 0;
+        $("a").click(function(){
+            event.preventDefault();
+            //0 가위 1 바위 2보
+            // alert($(this).index());
+            var myChoice = $(this).index();
+            var comChoice = parseInt(Math.random() * 3);
+            switch(myChoice - comChoice) {
+               case -2 :
+                case 1 :
+                    v++;
+                    $("h2").text('이김');
+                break;
+                case 0 :
+                    d++;
+                    $("h2").text('비김');
+                break;
+                case -1 :
+                case 2 :
+                    l++;
+                    $("h2").text('짐');
+                break; 
+            }
+            // alert(myChoice + " ," + comChoice);
+            // 아이콘 변경작업
+            $(".result-icon:eq(0)").removeClass("r s p").addClass("common").addClass("srp"[myChoice])
+            $(".result-icon:eq(1)").removeClass("r s p").addClass("common").addClass("srp"[comChoice])
+            $("span:eq(0)").text(v);
+            $("span:eq(2)").text(l);
+            $("span:eq(1)").text(d);
+        });
+    </script>
+</body>
+</html>

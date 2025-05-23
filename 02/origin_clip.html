@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {width: 300px; height: 300px; border: 20px dashed;
+            padding: 30px;
+            background-color: orange;
+            background-clip: padding-box;
+            /* background의 시작은 border이다. */
+            background-image: url(images/bg_flower.png);
+            /* image는 padding 박스가 기본 시작 */
+            background-repeat: no-repeat;
+            background-origin: border-box;
+            /* 패딩박스부터 시작 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

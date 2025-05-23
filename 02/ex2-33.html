@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {width: 170px; border: 1px solid;}
+        p:nth-child(1) {white-space: normal;}
+        p:nth-child(2) {white-space: nowrap; overflow: hidden; text-overflow: ellipsis;} 
+        p:nth-child(3) {white-space: pre;}
+        p:nth-child(4) {white-space: pre-wrap;}
+        p:nth-child(5) {white-space: pre-line;}
+        div { display: inline-block; overflow-x: hidden; overflow-y: hidden;}
+        div img {transition: all .3s ease .05s;}
+        div img:hover {transform: scale(1.2);}
+    </style>
+    <!-- overflow는 넘치는거 잘라버림 -->
+     <!-- text overflow에서 ellipsis는 말줄임 처리 -->
+</head>
+<body>
+    <p>
+        public int add (int a, int b) {
+            return a + b;
+        }
+    </p>
+    <p>
+        public int add (int a, int b) {
+            return a + b;
+        }
+    </p>
+    <p>
+        public int add (int a, int b) {
+            return a + b;
+        }
+    </p>
+    <p>
+        public int add (int a, int b) {
+            return a + b;
+        }
+    </p>
+    <p>
+        public int add (int a, int b) {
+            return a + b;
+        }
+    </p>
+    <div>
+        <img src="images/bg_flower.png">
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {margin: 20px;}
+        div{
+            width: 600px; height: 100px; margin-bottom: 20px;
+            border: 10px solid transparent;
+        }
+        div{
+            border-image-source: url(images/border.png);
+            border-image-width: 27px;
+        }
+        /* browser vendor prefix 
+        to right
+        -webkit- : chrome, safari, edge, whale
+        right
+        -moz- : firefox
+        left
+        */
+        .round {border-image-repeat: round; -webkit-border-image: url(images/border.png) 27 round;}
+        .repeat{border-image-repeat: repeat; -webkit-border-image: url(images/border.png) 27 repeat;}
+        .stretch{border-image-repeat: stretch; -webkit-border-image: url(images/border.png) 27 stretch;}
+    </style>
+</head>
+<body>
+    <div class="round">
+        It's impossible not only startin good but also keeping it firm!!
+    </div>
+    <div class="repeat">
+        It's impossible not only startin good but also keeping it firm!!
+    </div>
+    <div class="stretch">
+        It's impossible not only startin good but also keeping it firm!!
+    </div>
+</body>
+</html>

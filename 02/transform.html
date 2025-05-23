@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body > div > div {display: inline-block; border: 1px solid; margin: 20px 10px;}
+        img {transition: all .3s;}
+        .trans div:nth-child(1) img:hover {transform: translateX(30px);}
+        .trans div:nth-child(2) img:hover {transform: translateY(-30px);}
+        .trans div:nth-child(3) img:hover {transform: translate(30px, -30px);}
+        .trans div:nth-child(4) img:hover {transform: translateZ(30px);}
+
+        .rotate div {perspective: 500px;}
+        .rotate div:nth-child(1) img:hover {transform: rotateX(30deg);}
+        .rotate div:nth-child(2) img:hover {transform: rotateY(30deg);}
+        .rotate div:nth-child(3) img:hover {transform: rotateZ(30deg);}
+
+        .scale div:nth-child(1) img:hover {transform: scaleX(1.5);}
+        .scale div:nth-child(2) img:hover {transform: scaleY(1.2);}
+        .scale div:nth-child(3) img:hover {transform: scale(2);}
+
+        .skew div:nth-child(1) img:hover {transform: skewX(20deg);}
+        .skew div:nth-child(2) img:hover {transform: skewY(-30deg);}
+        .skew div:nth-child(3) img:hover {transform: skew(20deg, -30deg);}
+    </style>
+</head>
+<body>
+    <h1>translate</h1>
+    <div class="trans">
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+    </div>
+    <h1>rotate</h1>
+    <div class="rotate">
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+    </div>
+    <h1>scale</h1>
+    <div class="scale">
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+    </div>
+    <h1>skew</h1>
+    <div class="skew">
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+        <div><img src="images/bg_flower.png"></div>
+    </div>
+</body>
+</html>

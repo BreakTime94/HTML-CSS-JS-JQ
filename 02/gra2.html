@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {width: 300px; height: 200px; margin: 0 auto;}
+        /* 원형 그라디언트 
+        radial-gradient(모양 at 위치, colorstop1, colorstop2, ...)
+        */
+        .box1 {background: radial-gradient(circle, white 0%, blue);}
+        .box2 {background: radial-gradient(circle at 30px 50%, white 0%, blue);}
+        .box3 {background: radial-gradient(circle closest-side at 100px 30px, white 0%, black);}
+        .box4 {background: radial-gradient(circle closest-corner at 100px 30px, white 0%, black);}
+        .box5 {background: radial-gradient(circle farthest-side at 100px 30px, white 0%, black);}
+        .box6 {background: radial-gradient(circle farthest-corner at 100px 30px, white 0%, black);}
+        .bulls-eye{width: 300px; height: 300px; border: 1px solid #aaa; border-radius: 50%;
+            background: repeating-radial-gradient(white, white 30px, #aaa 30px, #aaa 60px);
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+    <div class="box box6"></div>
+    <div class="bulls-eye"></div>
+</body>
+</html>

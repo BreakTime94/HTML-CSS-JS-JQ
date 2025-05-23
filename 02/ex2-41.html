@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {height: 5000px; background: no-repeat url(images/bg_flower.png) center fixed;}
+        /* scroll을 내려도 꽃이 저 위치에 고정됨 패럴렉스 디자인의 기본*/
+        .cls1 {list-style: none;}
+        .cls2 li {
+            background-image: url(images/bg_bullet.png);
+            background-repeat: no-repeat;
+            background-position:0 50% ;
+            padding-left: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h3>최근 게시물</h3>
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+    </ul>
+    <ul class="cls1">
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+    </ul>
+    <ul class="cls1 cls2">
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+    </ul>
+</body>
+</html>

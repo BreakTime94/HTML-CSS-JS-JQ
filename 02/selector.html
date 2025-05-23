@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p[title='nation kor'] {color: red;}
+        /* p 생략가능 */
+        p[title$='kor'] {text-decoration: underline;}
+        p[title~='kor'] {font-size: 2em;}
+        p[class~='my'] {color: purple;} 
+        /* 공백구분 하이픈은 먹히지 않는다.*/
+        p[class|='my'] {color: blue;}
+        [title] {background-color: orange;}
+
+        li:first-child {color: brown;} 
+        /* 딸기 청경채가 바뀜 
+        그냥 첫번째 자식*/
+        li:first-of-type{font-weight: bold} 
+        /* type의 첫번째 자식 */
+        li:last-of-type{color: coral;}
+        li:nth-child(3) {color: crimson;}
+        li:nth-child(3n) {text-decoration: underline;}
+        li:nth-of-type(1) {background-color: yellowgreen;}
+        li:nth-last-child(2) {font-size: 20px;}
+        li:nth-child(2n+1) {background-color: #abcd;}
+
+        /* li태그 앞에다가 붙일 추가 컨텐츠 */
+        li::before { content: '내가 좋아하는'; display: block;}
+        /* li태그 마지막에 붙일 추가 컨텐츠 */
+        li::after { content: '!!!';}
+
+        .clearfix::after {content:''; display: block; clear: both;}
+
+    </style>
+</head>
+<body>
+    <p title="nation kor ko-kr" class="my-class">한국</p>
+    <p title="nation jpn jp">일본</p>
+    <p title="nation chn ch">중국</p>
+    <div class="wrapper clearfix">
+        <div class="content"></div>
+        <div class="aside"></div>
+    </div>
+    <h3>과일들</h3>
+    <ul>
+        <li>딸기</li>
+        <li>사과</li>
+        <li>배</li>
+        <li>수박</li>
+        <li>복숭아</li>
+        <li>오렌지</li>
+        <li>모과</li>
+        <li>무화과</li>
+        <li>망고</li>
+        <li>용과</li>
+        <li>키위</li>
+    </ul>
+    <h3>야채들</h3>
+    <ul>
+        <p>깻잎</p>
+        <li>청경채</li>
+        <li>배추</li>
+        <li>가지</li>
+        <li>버섯</li>
+        <li>상추</li>
+    </ul>
+</body>
+</html>

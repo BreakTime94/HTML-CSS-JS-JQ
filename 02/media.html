@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* h2{color: red;}
+        @media print {
+            h2{color: blue;}
+        } */
+        * {margin: 0; padding: 0; font-family: '맑은 고딕'; color: #eee;}
+        a {text-decoration: none; color: #eee;}
+        body {background: #222;}
+        ul li {list-style: none;}
+        .clearfix::after {content: ''; display: block; clear: both;}
+        header, footer {background: #222; text-align: center; padding: 30px;}
+        header {background: #222 url(https://i.namu.wiki/i/ePrX0CltHXrXeFQCx60-eul75QfC4xE99LGu560Q7TYKq12npQgOV1c5YyDpGComCV6hWjNuIIGvnc3cpiIIF7PVvi5b92lqqzkFhTmgyDgvNrsBC5hVSkt28DRvPux1DHqOLEHiLfOl33vO8lap2g.webp); 
+            background-size: cover;}
+        nav {background: #444;}
+        .content {background: #666;}
+        nav, aside, .content {padding: 16px 0; min-height: 200px;}
+
+
+
+        
+        nav {padding: 0; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd;}
+        nav li a {display: block; text-align: center; background-color: #333; padding: 16px;}
+        nav li:not(:first-child) a {border-top: 1px solid #ddd;}
+        /*  */
+        .cardnews {width: 320px; margin: 0 auto; border-radius: 8px; overflow: hidden; background-color: #333;}
+        .cardnews img {width: 100%;}
+        .cardnews h3 {margin: 16px;}
+        .cardnews p {text-align: right; padding: 16px; font-size: 13px;}
+        .cardnews :hover {background-color: #ddd;}
+        
+        /* tablet 반응형*/
+        @media screen and (min-width: 768px) {
+            nav, .content {float: left;}
+            nav {width: 192px;}
+            .content {width: 576px;}
+            aside {clear: both;}
+            .tap-cls {width: 768px; margin: 0 auto;}
+            .cardnews {width: 264px; float: left; margin-left: 16px;}
+        }
+
+        /* PC 반응형*/
+        @media screen and (min-width: 1200px) {
+            .tap-cls {float: left; width: 900px;}
+            main {width: 1200px; margin: 0px auto;}
+            .content {width: 708px;}
+            aside {float: left; clear: none; width: 300px;}
+        }
+    </style>
+</head>
+<body>
+    <!-- <h2>텍스트 테스트</h2> -->
+     <header>
+        <h1>더조은 반응형 디자인학원</h1>
+     </header>
+     <main class="clearfix">
+        <div class="tap-cls">
+            <nav>
+                <ul>
+                    <li><a href="#">메뉴1</a></li>
+                    <li><a href="#">메뉴2</a></li>
+                    <li><a href="#">메뉴3</a></li>
+                    <li><a href="#">메뉴4</a></li>
+                </ul>
+            </nav>
+            <div class="content">
+                <div class="cardnews">
+                    <a href="https://shop.danawa.com/shopmain/?controller=goods&methods=index&categorySeq=12216">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h4FcPs_9PwHpO85AkrwMUcl05YQEnEgojA&s" alt="">
+                        <h3>메이플스토리</h3>
+                        <p>보러가기</p>
+                    </a>
+                
+                </div>
+                <div class="cardnews">
+                    <a href="https://shop.danawa.com/shopmain/?controller=goods&methods=index&categorySeq=12216">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h4FcPs_9PwHpO85AkrwMUcl05YQEnEgojA&s" alt="">
+                        <h3>메이플스토리</h3>
+                        <p>보러가기</p>
+                    </a>
+                
+                </div>
+                <div class="cardnews">
+                    <a href="https://shop.danawa.com/shopmain/?controller=goods&methods=index&categorySeq=12216">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h4FcPs_9PwHpO85AkrwMUcl05YQEnEgojA&s" alt="">
+                        <h3>메이플스토리</h3>
+                        <p>보러가기</p>
+                    </a>
+                
+                </div>
+                
+                <div class="cardnews">
+                    <a href="https://shop.danawa.com/shopmain/?controller=goods&methods=index&categorySeq=12216">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1h4FcPs_9PwHpO85AkrwMUcl05YQEnEgojA&s" alt="">
+                        <h3>메이플스토리</h3>
+                        <p>보러가기</p>
+                    </a>
+                
+                </div>
+            </div>
+        </div>
+            <aside>
+                사이드바
+            </aside>
+     </main>
+     <footer>
+        <p>copyright &copy; all rights reserved</p>
+     </footer>
+</body>
+</html>

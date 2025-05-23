@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {display: flex; width: 300px; margin: 0 auto; flex-wrap: wrap;}
+        .box {width: 100px; height: 100px;}
+        /* wrapper class 에서 diplay를 flex로 주면 자동으로 가로로 배치 
+        flex는 축을 기준으로 늘려주는 역할이다. 
+        flex-grow , flex-shrink flex-basis를 줄여서 flex로 할 수 있다. 
+        전체 길이가 고정되어 있으면 나눠서 먹는다. 
+        */
+        .box1 {background-color: #f002;}
+        .box2 {background-color: #f005;}
+        .box3 {background-color: #f008;}
+        .box4 {background-color: #f00b;}
+        .box5 {background-color: #f00e;}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+    </div>
+</body>
+</html>

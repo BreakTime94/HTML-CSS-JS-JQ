@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><input id="data1" value="0"></p>
+    <p><input id="data2" value="0"></p>
+    <p>결과<span></span></p>
+    <script>
+        var data1 = document.querySelector("#data1"); //문서 객체 타입
+        var data2 = document.querySelector("#data2");
+        function ev() {
+            document.querySelector("p span").innerHTML = data1.value / 1 + data2.value / 1;
+        }
+        data1.addEventListener("keyup", ev);
+        data2.addEventListener("keyup", ev);
+    </script>
+</body>
+</html>

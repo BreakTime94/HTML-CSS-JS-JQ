@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {width: 100px; height: 100px;}
+        .box:nth-child(1) {background-color: aqua;}
+        .box:nth-child(2) {background-color: black;}
+        .box:nth-child(3) {background-color: blueviolet;}
+        img {opacity: .4;}
+    </style>
+</head>
+<body>
+    <!--display, visibility-->
+    <div class="dis">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <button id="btnDis">display toggle</button>
+    <div class="vis">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <img src="images/imfree.png" alt="">
+    <button id="btnVis">visibility toggle</button>
+    <!--BEM-->
+    <script>
+        document.querySelector("#btnDis").addEventListener("click",function() {
+            const box = document.querySelector(".dis .box:nth-child(2)");
+            box.style.display = box.style.display == 'block' ? 'none' : 'block';
+        });
+
+        document.querySelector("#btnVis").addEventListener("click",function() {
+            const box = document.querySelector(".vis .box:nth-child(2)");
+            box.style.visibility = box.style.visibility == 'visible' ? 'hidden' : 'visible';
+        });
+    </script>
+</body>
+</html>

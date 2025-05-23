@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {width: 0px; height: 0px; border: 100px solid;
+            border-top-color: red ;
+            border-bottom-color: transparent ;
+            border-right-color: transparent ;
+            border-left-color: transparent ;
+        }
+        .ggo {
+            border: 15px solid transparent; width: 0; border-top: 30px solid black;
+            margin: 0 auto;
+        }
+        .main {background: black; max-width: 300px; padding: 50px; margin: 0 auto;
+            color: white; position: relative; margin-bottom: 50px; border-radius: 20px;
+        }
+        .main::after {
+            display: block; content: ''; position: absolute; bottom: -45px; left: 130px; 
+            transform: skewX(-30deg);
+            border: 15px solid transparent; width: 0; border-top: 30px solid black;
+            margin: 0 auto;
+        }
+        .main.me::after {
+            left: 250px;
+            transform: skewX(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="main">HTML 개어렵네;</div>
+    <div class="main me">내 말이</div>
+    <div class="main">상대가 말한 구간</div>
+    <div class="main me">내가 말한 구간</div>
+    <div class="main">상대가 말한 구간</div>
+    <div class="main me">내가 말한 구간</div>
+</body>
+</html>

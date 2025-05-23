@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // prompt(); // 인자를 사용하지 않아도 된다.
+        // prompt('메세지', 10); // 인자를 사용하지 않아도 된다. 뒤에 있는 값은 기본 값을 설정하고 String type으로 받는다. 
+        // //값이 없으면 null 이다. 
+        // var num = prompt('숫자를 입력하세요', 10);
+        // console.log(num);
+        //숫자 두개를 입력받아 합계를 alert()로 표현
+
+        var a = prompt('첫번째 숫자를 입력하세요') - 0; // - 0 산술연산으로 숫자 강제 형변환
+        var b = prompt('두번째 숫자를 입력하세요') / 1 // /1 산술연산으로 숫자 강제 형변환
+        var sum = a + b;
+        alert('두 수의 합계는 ' + sum)
+        console.log(sum);
+        // 두 숫자중 큰 숫자를 출력 
+        var max = a > b ? a : b ;
+        alert(`두 숫자 ${a}과 ${b} 중에 더 큰 숫자는` + max)
+        console.log(max);
+
+        var num = 10; 
+        // var ret = Boolean(num);
+        var ret = !!num; // 이중 부정, num이 0이 아니므로, true false true로 간다. 
+
+        for(var i =10 ; i--; ) {
+            // i가 0이 되면 false가 되므로 false가 될때까지 for문이 작동한다.
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var value = prompt('값을 입력하세요') || '기본값' 
+        //  논리연산자는 서로 비교 타입이 같으면 그 타입으로 출력
+        console.log(value);
+        console.log(2 && 3); // && 값은 둘 다 true여야 하므로 3까지 확인하고 3이 나온다.
+        console.log(0 || 3); // 확인할 필요 없이 2가 나옴(number는 0 빼고는 전부 true)
+        console.log(''||'가' || 3);
+        console.log(0 && 3); //false 이므로 0으로 반환?
+        console.log('' ?? 3 ?? 2 ?? 1); 
+        //빈 문자열도 문자열로 취급하기 위해서는, 0도 취급하기 위해서는 새로운 문법이 필요하므로 ??로 처리한다.
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

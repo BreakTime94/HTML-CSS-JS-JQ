@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td {border: 1px solid;}
+        table {border-collapse: collapse; margin: 0 auto;}
+        td{padding: 16px;}
+        td:first-child{color: red;} td:nth-child(7) {color: blue;}
+    </style>
+    <script>
+        var str = "<table><tr>";
+        for (var i = 1; i <= 31; i++) {
+            str += "<td>" + i + "</td>"
+            if(i % 7 == 0) {
+                str += "</tr><tr>"
+            }
+        }
+        str+='</tr></table>';
+        document.write(str); // 바디에 집어넣으라고 하는 것
+    </script>
+</head>
+<body>
+
+</body>
+</html>

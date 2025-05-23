@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper {display: inline-block; margin: 30px;}
+        .men > * {background: blue;}
+        .women > * {background: red;}
+        .head {width: 140px; height: 140px; border-radius: 50%; margin-bottom: 30px;}
+        .body {border: 70px solid transparent; background-color: transparent;}
+        .men .body{border-top: 120px solid blue; border-bottom-width: 0;}
+        .women .body{border-bottom: 120px solid red; border-top-width: 0;}
+    </style>
+</head>
+<body>
+    <div class="wrapper men">
+        <div class="head"></div>
+        <div class="body"></div>
+    </div>
+    <div class="wrapper women">
+        <div class="head"></div>
+        <div class="body"></div>
+    </div>
+</body>
+</html>

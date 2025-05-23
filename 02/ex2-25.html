@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .letter2 {letter-spacing: 5px; border: 1px solid black;}
+    .letter3 {word-spacing: 2em;}
+    /* 가상클래스 선택자 
+        - 일 때, -할 때 기호는 : 기호 사용
+        주로 a태그와 조합하여 사용
+        : visited 방문했을 때
+        : link link 일 때
+        : active 눌렀을 때
+        : hover 마우스 올렸을 때
+        : focus 초점이 있었을 때
+        */
+    p a :visited{color: orange;}
+    p a :link {text-decoration: none; color: black;}
+    p a :active{text-decoration: none; color: magenta;}
+    p a :hover, p a:focus {text-decoration: underline; color: blue;}
+    .txt :hover, .txt :focus{color: red;}
+</style>
+<body>
+    <p>1990년형 노트북은 안녕<br> 잘가세요, 고생하셨소~ </p>
+    <p class="letter2">
+        1990년형 노트북은 안녕<br> 잘가세요, 고생하셨소~ </p>
+    <p class="letter3">
+        1990년형 노트북은 안녕<br> 잘가세요, 고생하셨소~ </p>
+    <p><a href="https://www.naver.com">네 이버</a></p>
+    <p><a href="ex2-5.html">ex2-5</a></p>
+    <p class="txt" tabindex="0">일반 텍스트 구간</p>
+</body>
+</html>
