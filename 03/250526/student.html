@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {text-align: center;}
+        table {
+            width: 100%; 
+            max-width: 1000px; 
+            border-collapse: collapse; margin: 0 auto 20px;
+        }
+        table, th, td {border: 1px solid;}
+        th {width: 12.5%;}
+        th, td {padding: 16px; text-align: center;}
+        form {border: 1px solid; width: 100%; max-width: 500px; margin: 0 auto; padding: 16px;}
+        form input {width: 95%; padding: 2.5%;}
+    </style>
+    <script>
+        const students = [];
+
+        //학생 타입의 생성자 함수를 정의
+        function Student(no, name, kor, eng, mat) {
+            this.no = no;
+            this.name = name;
+            this.kor = kor;
+            this.eng = eng;
+            this.mat = mat;
+            // this.total = function() {
+            //     return this.kor + this.eng + this.mat;
+            // }
+            this.total = () => this.kor + this.eng + this.mat;
+            
+            this.avg = function() {
+                return this.total() / 3; 
+            }
+        }
+        // 초기 데이터 
+        students.push(new Student(1, '새똥이', 90, 90, 80));
+        students.push(new Student(2, '개똥이', 80, 80, 80));
+        students.push(new Student(3, '소똥이', 70, 70, 80));
+
+        //배열에 학생 추가
+        
+
+        //배열에서 학생 제거
+
+        //배열의 학생 데이터를 화면에 그리기
+        function list() {
+           const tbody = document.querySelector("tbody");
+            let str = ""; 
+            for(let i = 0; i < students.length; i++) {
+                str += "<tr>";
+                str += `<td>${students[i].no}</td>`
+                str += `<td>${students[i].name}</td>`
+                str += `<td>${students[i].kor}</td>`
+                str += `<td>${students[i].eng}</td>`
+                str += `<td>${students[i].mat}</td>`
+                str += `<td>${students[i].total()}</td>`
+                str += `<td>${students[i].avg()}</td>`
+                str += `<td><button>삭제</button></td>`
+                str += "</tr>";
+            }
+            tbody.innerHTML = str;
+        }
+        window.onload = function() {
+            list();
+        }
+
+    </script>
+</head>
+<body>
+    <h2>생성자 함수 목록</h2>
+    <table>
+        <caption><h3>2025 tj 석차정리</h3></caption>
+        <thead>
+        <tr> 
+            <th>학번</th>
+            <th>이름</th>
+            <th>국어</th>
+            <th>수학</th>
+            <th>영어</th>
+            <th>총점</th>
+            <th>평균</th>
+            <th>삭제</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>새똥이</td>
+                <td>90</td>
+                <td>80</td>
+                <td>70</td>
+                <td>240</td>
+                <td>80</td>
+                <td><button>삭제</button></td>
+            </tr>
+        </tbody>
+    </table>
+            <hr>
+            <h2>데이터 추가</h2>
+            <form>
+                <div>
+                    <p><label for="no">학번</label></p>
+                    <p><input id="no" name="no"></p>
+                </div>
+                <div>
+                    <p><label for="name">이름</label></p>
+                    <p><input id="name" name="name"></p>
+                </div>
+                <div>
+                    <p><label for="kor">국어</label></p>
+                    <p><input id="kor" name="kor"></p>
+                </div>
+                <div>
+                    <p><label for="eng">영어</label></p>
+                    <p><input id="eng" name="eng"></p>
+                </div>
+                <div>
+                    <p><label for="mat">수학</label></p>
+                    <p><input id="mat" name="mat"></p>
+                </div>
+                <button>등록</button>
+            </form>
+            <script>
+                //학생 등록 
+                document.querySelector("form").addEventListener("submit", function(){
+                    event.preventDefault();
+                    console.log("click test");
+                    students.push(new Student(this.no.value, this.name.value, this.kor.value/1, this.eng.value/1, this.mat.value/1));
+                    list();
+                })
+                //학생 삭제
+                document.querySelector("tbody").addEventListener("click", function(){
+                    if(event.target.tagName === "BUTTON") {
+                        // console.log(event.target.closest("tr").querySelector("td").innerText);
+                        // 가장 가까운 요소 찾기 -> closest
+                        // querySelector -> 가장 앞쪽 행부터 접근 
+                        // innerText 그 안에 있는 값 추출
+                        // index만 먼저 찾는다. 
+                        const no = event.target.closest("tr").querySelector("td").innerText;
+                        let idx = -1;
+                        for(let i = 0; i< students.length; i++) {
+                            if(students[i].no = no) {
+                                idx = i;
+                            }
+                        }
+                        // for(let i in students) {
+                        //     if(students[i].no == no) {
+                        //         idx = i;
+                        //     }
+                        // }
+
+                        // for (let i of students) {
+                        //     if(i.no == no) {
+                        //         idx = i;
+                        //     }
+                        // }
+
+                        students.splice(idx, 1); //idx 인덱스부터 1개 지우겠다.
+                        list();
+                    }
+                })
+            </script>
+</body>
+</html>

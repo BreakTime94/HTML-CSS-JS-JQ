@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {margin: 20px auto 20px; width: 100%; max-width: 1000px;
+        text-align: center;
+        }
+        table, td, th {border: solid 1px;}
+        form {border: 1px solid; margin: 0 auto; max-width: 500px; width: 100%; padding: 16px;}
+        form input {width: 95%; padding: 2.5%;}
+    </style>
+    <script>
+        const cards = [];
+        function Card (no, name, age, job) {
+            this.no = no;
+            this.name = name;
+            this.age = age;
+            this.job = job;
+        }
+        
+        cards.push(new Card(1, "새똥이", 12, "고양이"));
+        cards.push(new Card(2, "말똥이", 8, "말"));
+        cards.push(new Card(3, "김찬", 32, "인간"));
+
+        function list() {
+            const tbody = document.querySelector("tbody");
+            let str = "";
+            for(let i = 0; i < cards.length; i++) {
+                str += "<tr>";
+                str += `<td>${cards[i].no}</td>`;
+                str += `<td>${cards[i].name}</td>`;
+                str += `<td>${cards[i].age}</td>`;
+                str += `<td>${cards[i].job}</td>`;
+                str += `<td><button>삭제(안먹힘)</button></td>`;
+                str += "</tr>"
+            }
+            tbody.innerHTML = str ;
+        }
+        window.onload = function() {
+            list();
+        }
+
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>순번</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>직업</th>
+                <th><button>등록</button></th>
+            </tr>
+        </thead>
+        <tbody>
+     
+        </tbody>
+    </table>
+    <hr>
+    <form>
+        <div>
+            <p ><label for="no">순번</label></p>
+            <p><input id ="no" name = "no"></p>
+        </div>
+        <div>
+            <p ><label for="name">이름</label></p>
+            <p><input id ="name" name = "name"></p>
+        </div>
+        <div>
+            <p ><label for="age">나이</label></p>
+            <p><input id ="age" name = "age"></p>
+        </div>
+        <div>
+            <p ><label for="job">직업</label></p>
+            <p><input id ="job" name = "job"></p>
+        </div>
+        <button>등록</button>
+    </form>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(){
+            event.preventDefault();
+            console.log(this.no)
+            console.log(this.no.value)
+            cards.push(new Card (this.no.value, this.name.value, this.age.value, this.job.value))    
+            list();
+        })
+    </script>
+</body>
+</html>

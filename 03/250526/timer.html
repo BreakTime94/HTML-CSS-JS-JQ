@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // function() {} () => {}
+        //특정 시간 간격동안 수행할 일을 호출하는 함수
+        // window.onload = function() {
+        //     setInterval(function() {
+        //         document.querySelector("h2").innerText = new Date();
+        //     }, 1000);
+        // };
+        // onload 타입은 함수 타입이다.
+        window.onload = _ => setInterval(_ => document.querySelector("h2").innerText = new Date().toLocaleString(), 1000) 
+        // () 인자가 없을경우 _로 생략가능 파라미터의 이름을 _로 준것!
+        // function() {} () => {}
+        // window.onload = () => {
+        //     setInterval(() => {
+        //         document.querySelector("h2").innerText = new Date().toLocaleString;
+        //     }, 1000);
+        // };
+    </script>
+</head>
+<body>
+    <h2></h2>
+</body>
+</html>
