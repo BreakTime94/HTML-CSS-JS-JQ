@@ -6,6 +6,7 @@
     <title>달력</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>    
+    /* transition: all .3s; */
         table {border-collapse: collapse; width: 100%; max-width: 1200px; margin: 0 auto;}
         table h2 {display: inline-block;}
         table caption > * {margin: 16px 20px; vertical-align: top;}
@@ -13,7 +14,7 @@
         table caption button {border: 1px solid black;
             background: transparent;
             cursor: pointer; width: 30px; height: 30px; line-height: 16px; border-radius: 50%;
-            transition: all .3s; margin-top: 20.5px; 
+             margin-top: 20.5px; 
         }
         table caption button:hover {box-shadow: 0 0 3px black, 2px 2px 5px #ddd; }
         th, td {height: 100px;} 
@@ -26,7 +27,13 @@
             //마지막 날짜
             const date = new Date();
             const year = date.getFullYear();
-            const month = date.getMonth();
+            let month = date.getMonth();
+            // month = function() {
+            //     return date.getMonth - 1;
+            // }
+            
+            
+
             const allMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
             let lastDate = allMonths[month];
             if(month === 1 && year % 4 === 0 && year % 100 !== 0 && year % 400 === 0) {
@@ -39,7 +46,7 @@
             //
             let str = "<tr>";
             for(let i = 1 - firstDay; i <= 35 - firstDay; i++) {
-                str += `<td>${i <= lastDate && i >= 1 ? i : ''}</td>` ;
+                str += `<td>${i >= 1 ? i : ''}</td>` ;
                 if((i + firstDay) % 7 == 0) {
                     str += "</tr><tr>"
                 }
@@ -112,6 +119,14 @@
             </tr>
         </tbody>
     </table>
-    
+    <script>
+       document.querySelector("caption").addEventListener("click", function(){
+            // console.log(event.target.tagName);
+            event.preventDefault();
+        if (event.target.tagName === "BUTTON"){
+                console.log("안녕");
+            }
+        });
+    </script>
 </body>
 </html>
