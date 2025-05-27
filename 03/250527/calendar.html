@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>달력</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>    
+        table {border-collapse: collapse; width: 100%; max-width: 1200px; margin: 0 auto;}
+        table h2 {display: inline-block;}
+        table caption > * {margin: 16px 20px; vertical-align: top;}
+        table, th, td {border: 1px solid black;}
+        table caption button {border: 1px solid black;
+            background: transparent;
+            cursor: pointer; width: 30px; height: 30px; line-height: 16px; border-radius: 50%;
+            transition: all .3s; margin-top: 20.5px; 
+        }
+        table caption button:hover {box-shadow: 0 0 3px black, 2px 2px 5px #ddd; }
+        th, td {height: 100px;} 
+        td{vertical-align: top; padding: 16px;}
+        tr > *:nth-child(1) {color: red;}
+        tr > *:nth-child(7) {color: blue;}
+    </style>
+    <script>
+        function drawCalendar() {
+            //마지막 날짜
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            const allMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            let lastDate = allMonths[month];
+            if(month === 1 && year % 4 === 0 && year % 100 !== 0 && year % 400 === 0) {
+                lastDate = 29;
+            } 
+            // 1일의 요일은 어떻게 보냐?
+            date.setDate(1); //date를 1일로 바꾸고, 
+            const firstDay = date.getDay(); // 0 ~ 6 (일 ~ 토) 1일의 요일을 슉 가져오면 됨
+            console.log(firstDay); // 이 값은 4
+            //
+            let str = "<tr>";
+            for(let i = 1 - firstDay; i <= 35 - firstDay; i++) {
+                str += `<td>${i <= lastDate && i >= 1 ? i : ''}</td>` ;
+                if((i + firstDay) % 7 == 0) {
+                    str += "</tr><tr>"
+                }
+            }
+            str += "</tr>"
+            console.log(str);
+            document.querySelector("table tbody").innerHTML = str;
+        }
+        window.onload = function() {
+            drawCalendar();
+        } 
+    </script>
+</head>
+<body>
+    <table>
+        <caption>
+            <button><i class="fa-solid fa-angles-left"></i></button>
+            <button><i class="fa-solid fa-arrow-left"></i></button>
+            <h2>2025. 05.</h2>
+            <button><i class="fa-solid fa-arrow-right"></i></button>
+            <button><i class="fa-solid fa-angles-right"></i></button>
+        </caption>
+        <thead>
+            <tr>
+                <th>일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+                <th>토</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>
