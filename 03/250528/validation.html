@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {text-align: center;}
+        .join-frm {width: 100%; max-width: 500px; margin: 0 auto;
+        padding: 20px; box-sizing: border-box; }
+        .join-frm input {width: 95%; padding: 8px;}
+        .join-frm button {width: 455px; padding: 8px;}
+        .join-frm div {margin: 32px 0;}
+        .join-frm .valid-msg {font-size: 12px; color: red; visibility: hidden;}
+        .join-frm .valid-msg.active {visibility: visible;}
+    </style>
+</head>
+<body>
+    <!--아이디 (영소문자만), 비밀번호 8글자 이상, 비밀번호 확인, 
+    비밀번호와 같은 값, 이름, 이메일 이메일 유효성검증 정규식--> 
+    <h2>회원가입</h2>
+    <form name="frm" class="join-frm">
+        <div>
+            <p><label for="id">아이디</label></p>
+            <p><input type="text" name = "id" id = "id"></p>
+            <p class="valid-msg">아이디는 영소문자로만 이루어져야 합니다.</p>
+        </div>
+        <div>
+            <p><label for="pw">비밀번호</label></p>
+            <p><input type="password" name = "pw" id = "pw"></p>
+            <p class="valid-msg">비밀번호는 8글자 이상이어야 합니다.</p>
+        </div>
+        <div>
+            <p><label for="pwck">비밀번호확인</label></p>
+            <p><input type="password" name = "pwck" id = "pwck"></p>
+            <p class="valid-msg">비밀번호는 서로 일치하여야 합니다.</p>
+        </div>
+        <div>
+            <p><label for="name">이름</label></p>
+            <p><input type="text" name = "name" id = "name"></p>
+            <p class="valid-msg">이름은 두글자 이상이어야 합니다.</p>
+        </div>
+        <div>
+            <p><label for="email">이메일</label></p>
+            <p><input type="email" name = "email" id = "email"></p>
+            <p class="valid-msg">유효한 이메일을 입력하세요.</p>
+        </div>
+        <button>회원가입</button>
+    </form>
+    <script>
+        function validate(target, regexp) {
+            return regexp.test(target);
+        }
+        console.log(document.querySelectorAll(".join-frm input")); //node list 타입
+        
+        const inputs = document.querySelectorAll(".join-frm input");
+        const regexps = {
+           id: /^[a-z]+$/,
+           pw: /^[\w]{8,}/,
+           pwck: null,
+           name: /^[가-힣A-Za-z]{2,}/,
+           email: /^[\w-.]+@([\w-]+.)+[\w-]{2,4}$/ //
+        };
+        function validateField(input) {
+            const name = input.id;
+            const msgClassList = input.closest("div").querySelector(".valid-msg").classList;
+            
+            if(name ==="pwck") {
+                const valid = document.querySelector("#pw").value === input.value
+                console.log(valid);
+                console.log(msgClassList);
+                msgClassList.toggle("active", !valid);
+                console.log(msgClassList);
+
+            } else if(regexps[name]) {
+                const valid = validate(input.value, regexps[name]);
+                msgClassList.toggle("active", !valid);
+            }
+        } 
+
+        inputs.forEach(input => {
+            input.addEventListener("input", () => validateField(input));
+        });
+        document.querySelector(".join-frm").addEventListener("submit", e => {
+            event.preventDefault();
+            console.log("확인");
+        });
+
+        document.querySelector(".join-frm").addEventListener("submit", e => {
+            let isValid = true; 
+            inputs.forEach(input => {
+                const valid = validateField(input);
+                console.log(valid);
+                if(!valid) {
+                    isValid = false;
+                }})
+                
+                if(!isValid) {
+                    event.preventDefault();
+                    alert("입력값 확인");
+                }
+                alert("확인")
+        });
+
+        // for (let i = 0; i < 3; i++) {
+        //     inputs[i].onkeyup = function() {
+        //          const cl = this.closest("div").querySelector(".valid-msg").classList;
+        //          console.log(this.value);
+        //          alidate(this.value, regexps[i]) ? cl.remove("active") : cl.add("active");
+        //     }
+        // }
+        
+        // document.querySelector("#id").onkeyup = function() {
+        //     const cl = this.closest("div").querySelector(".valid-msg").classList;
+        //     validate(this.value, /^[a-z]+$/) ? cl.remove("active") : cl.add("active");
+        //     // console.log(cl);
+        //     // cl.add("active"); //togle, remove, add class 명에다가 글자를 추가하거나 바꾸거나 빼는 것 등
+        //     // console.log(validate(document.querySelector("#id").value, /^[a-z]+$/)) ;
+        // }
+        // document.querySelector("#pw").onkeyup = function() {
+        //     const cl = this.closest("div").querySelector(".valid-msg").classList;
+        //      validate(this.value, /^[\w]{8,}/) ? cl.remove("active") : cl.add("active");
+        // }
+        // document.querySelector("#pwck").onkeyup = function() {
+        //     const cl = this.closest("div").querySelector(".valid-msg").classList; 
+        //      validate(this.value, new RegExp("^"+document.querySelector("#pw").value+"$")) ? cl.remove("active") : cl.add("active");
+        // }
+        // //이름체크 문자 2글자 이상 
+        // document.querySelector("#name").onkeyup = function() {
+        //     const cl = this.closest("div").querySelector(".valid-msg").classList; 
+        //      validate(this.value, /^[가-힣]{2,}/) ? cl.remove("active") : cl.add("active");
+        // }
+        // // 이메일은 
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {padding: 20px; border: 1px solid;}
+    </style>
+    <!--자손에 있었던 이벤트가 부모쪽으로 전달됨 : 이벤트 버블링-->
+    <!--부모에 있었던 이벤트가 자식쪽으로 전달됨 : 이벤트 캡쳐링-->
+    <!--이벤트를 차단할 수 있다. : stopPropagation()을 통해서-->
+</head>
+<body> 
+    <div onclick="alert(1)">
+        <div onclick="alert(2); event.stopPropagation()">
+            <div onclick="alert(3)">
+                <div onclick="alert(4)">헬로</div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

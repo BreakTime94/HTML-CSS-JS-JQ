@@ -44,14 +44,28 @@
             const firstDay = date.getDay(); // 0 ~ 6 (일 ~ 토) 1일의 요일을 슉 가져오면 됨
             console.log(firstDay); // 이 값은 4
             //
+            let count = 1;
             let str = "<tr>";
-            for(let i = 1 - firstDay; i <= 35 - firstDay; i++) {
-                str += `<td>${i >= 1 ? i : ''}</td>` ;
-                if((i + firstDay) % 7 == 0) {
-                    str += "</tr><tr>"
+            for(let i = 1- firstDay; ; i++) {
+                str += '<td>';
+                str += i <= lastDate && i >= 1 ? i : '' ;
+                str += '</td>';
+                count++;
+                console.log(count - 1, i);
+                if(lastDate <= i && (count -1) % 7 == 0) break; 
+                if(i % 7 == (7 - firstDay) % 7) {
+                    str += '</tr><tr>'
                 }
             }
-            str += "</tr>"
+
+            // let str = "<tr>";
+            // for(let i = 1 - firstDay; i <= 35 - firstDay; i++) {
+            //     str += `<td>${i >= 1 ? i : ''}</td>` ;
+            //     if((i + firstDay) % 7 == 0) {
+            //         str += "</tr><tr>"
+            //     }
+            // }
+            // str += "</tr>"
             console.log(str);
             document.querySelector("table tbody").innerHTML = str;
         }
