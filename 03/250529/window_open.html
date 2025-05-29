@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Modal 팝업은 원래 창에 오퍼시티를 낮추고 그 창에 덮여져 있는 듯이 표시-->
+</head>
+<body>
+   <button>클릭</button>
+   <input><button class="change">변경</button><button class="naver">네이버</button>
+   <button onclick="history.back();">뒤로가기</button>
+   <button onclick="history.forward();">앞으로가기</button> <!--history는 stack 구조여서 go라는 명령어로 숫자로 처리하기도 한다.-->
+   <script>
+    let w = null;
+    document.querySelector("button").addEventListener("click", e => {
+        w = open("open_target.html", '', 'width=800, height=500');
+    });
+    
+    document.querySelector(".change").addEventListener("click", e => {
+        if(w) {
+            w.document.querySelector("body").innerHTML += `<h1>${document.querySelector("input").value}</h1>`;
+        }
+    });
+
+    document.querySelector(".naver").addEventListener("click", e => {
+        // window.open(location.href = "https://www.naver.com, '', ''");
+        location.reload();
+    })
+
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>console.log(1, document.body, document.querySelector("h2"))</script>
+
+    <script>
+        window.onload = () => {
+            console.log(1.5, document.body, document.querySelector("h2"))
+        }
+        $(document).ready(function() {
+            console.log("ready1")
+        })
+        $().ready(function() {
+            console.log("ready2")
+        })
+        $(function() {
+            console.log("ready3")
+        })
+    </script>
+</head>
+<body>
+    <script>console.log(2, document.body)</script>
+    <script>
+        window.addEventListener("load", function() {
+            console.log(2.2, document.body, document.querySelector("h2"))
+        })
+    </script>
+    <script>
+        window.onload = () => {
+            console.log(2.5, document.body, document.querySelector("h2"))
+        }
+    </script>
+    <h2>글자</h2>
+    <script>console.log(3, document.body)</script>
+</body>
+</html>

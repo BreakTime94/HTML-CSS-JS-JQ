@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+<!-- markup language rss 구조-->
+    <student>
+        <no>1</no>
+        <name>새똥이 &lt; <![CDATA[이 사이의 구간은 어떤 특수문자던지 처리가능 <<<>>>]]></name>
+        <grade>90</grade>
+    </student>
+    <student>
+        <no>2</no>
+        <name>개똥이</name>
+        <grade>80</grade>
+    </student>
+</students>

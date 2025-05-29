@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <style>
+        table {border-collapse: collapse; margin: 0 auto; width: 800px;}
+        table tr td {border: 1px solid black; text-align: center;}
+    </style>
+</head>
+<body>
+    <table> <!--짝수번째 행의 배경색 : 회색-->
+            <!--홀수번째 행의 배경색: 노란색-->
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+    </table>
+    <script> //짝수번째 열의 글자색: 빨간색 홀수번째 열의 글자색: 파란색 
+    // 0번부터 세워야 한다. css는 1부터 js는 0부터
+        $("tr:even").css("background", "yellow");
+        $("tr:odd").css("background", "gray");
+        $("td:nth-child(even)").css("color", "red");
+        $("td:nth-child(odd)").css("color", "blue");
+        // $("tr:nth-child(2n+1)").css("background", "yellow");
+        // $("tr:nth-child(2n)").css("background", "gray");
+        // $("td:nth-child(2n)").css("color", "red");
+        // $("td:nth-child(2n+1)").css("color", "blue");
+    </script>
+</body>
+</html>

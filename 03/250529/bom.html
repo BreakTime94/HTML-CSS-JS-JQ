@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc() {
+            console.log("hello");
+        }
+        // let window = {document : {}, location {} }
+        // for(let i in window) {
+        //     document.write(`<p>${i} :: ${window[i]}</p>`);
+        // }
+        //window.myFunc();
+        window.myFunc();
+        myFunc();
+        onload = function() {
+
+        }
+        var num = 10;
+        window.a = "abcd";
+        // window.alert(window.num);
+        // alert(a);
+        // delete window.a;
+       
+
+       
+    </script>
+</head>
+<body>
+    <button>클릭</button>
+    <script>
+        document.querySelector("button").addEventListener("click", function(){
+            let w = window.open("../250528/validation.html",'', 'width=300, height=300');
+            console.log(w);
+            console.log(typeof w);
+    
+            const inter = setInterval(() => {
+                w.moveBy(100, 100)
+            }, 300);
+    
+            setTimeout(() => {
+                w.close();
+                console.log(inter); // timerfunction의 고유번호를 반환한다. 
+                clearInterval(inter);
+                console.log(inter);
+            }, 3000); // handler 3000밀리세컨즈 이후에 할일을 끝내고 닫아버린다.
+        })
+    </script>
+</body>
+</html>

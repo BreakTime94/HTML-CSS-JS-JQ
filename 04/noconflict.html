@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        jQuery.noConflict(); //$ 안 쓰겠다!
+        console.log($);
+        jQuery(function(){ //IIFE 즉시 실행
+            jQuery("p").css("color", "red");
+        });
+        
+        (function($){
+            $(function() {
+                $("p").css("text-align", "center");
+            });
+        })(jQuery); //쓰고 버린다.
+    </script>
+</head>
+<body>
+    <p>어디출신</p>
+</body>
+</html>
