@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p::first-letter {font-size: 150%;}
+        /* 첫번째 글자만 150% 확대 */
+        p:first-child {color: hsl(0, 100%, 50%);} 
+        p {background-color: #5af;}
+        /* p태그들 중에서 첫번째 녀석만
+        아래와 겉은 경우는 각 요소들이 가지고 있는 p태그 중 첫번째만을 나타냄*/ 
+    </style>
+</head>
+<body>
+    <p>인생야발</p>
+    <div class="box">
+        <p>COMPANY</p>
+        <p>PRODUCT</p>
+        <P>SERVICE</P>
+        <P>COMMUNITY</P>
+    </div>
+    <div>
+        <p>이건 뭐냐냐</p>
+    </div>
+</body>
+</html>
