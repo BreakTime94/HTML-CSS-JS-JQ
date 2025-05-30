@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <style>
+        body{margin: 0;}
+        ul {padding: 0; background: #ddd; margin: 0;}
+        ul li {display: inline;}
+        ul li a {text-decoration: none; display: inline-block; 
+        width: 100px; padding: 16px; text-align: center; color: #222;}
+        ul li a:hover {background-color: #ccc;} 
+
+        body.dark {background-color: #222; }
+        .dark ul {background: #555;}
+        .dark ul li a{color: #ddd;}
+        .dark ul li a:hover {background-color: #777;}
+    </style>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                // $("body").toggleClass("dark");
+                // $("body").is(".dark") ? 
+                $("body").hasClass("dark") ?
+                $("body").removeClass("dark").find("button").text('darktheme') : 
+                $("body").addClass("dark").find("button").text('origin theme');
+            })
+        })
+    </script>
+</head>
+<body class="">
+    <button>dark theme</button>
+    <nav>
+        <ul>
+            <li><a href="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+            <li><a href="#">메뉴3</a></li>
+            <li><a href="#">메뉴4</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function(){
+            $("#all").change(function(){
+                console.log($(this).attr("checked")); //undefined
+                console.log($(this).prop("checked")); // true false
+                $(":checkbox").prop("checked", $(this).prop("checked")); //$(this) => #all 그 자체의 checked 결과 값(true/false)를 가져와서 밑에 있는 애들한테 전부 맥임
+                
+            });
+            $("form").submit(function(e){
+                e.preventDefault();
+                const hobbies = [];
+                $("[name=hobby]").filter(":checked").each(function(){
+                    hobbies.push(this.value);
+                }).parent().css("color", "red");
+                console.log(hobbies, $("[name=hobby]").filter(":checked").length);
+            });
+            $(":checkbox:not(#all)").change(function(){
+                let flag = false;
+                // $(":checkbox:not(#all)").each(function(){
+                //     if($(this).prop("checked")) {
+                //         flag = true;
+                //         // console.log(this);
+                //     }
+                // });
+                // $("#all").prop("checked", !flag);
+                // console.log($(this).val());
+                const total = $(":checkbox:not(#all)").length;
+                const checked = $("checkbox:not(#all):chekced").length;
+                $("#all").prop("checked", total === checked);
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>취미생활</legend>
+            <p><label>전체선택<input type="checkbox" id="all"></label></p>
+            <hr>
+            <p><label>클라이밍<input type="checkbox" name="hobby" value="climb"></label></p>
+            <p><label>음주<input type="checkbox" name="hobby" value="drink"></label></p>
+            <p><label>독서<input type="checkbox" name="hobby" value="read"></label></p>
+            <p><label>서핑<input type="checkbox" name="hobby" value="surfing"></label></p>
+            <p><label>메이플스토리<input type="checkbox" name="hobby" value="maple"></label></p>
+            <p><label>흡연<input type="checkbox" name="hobby" value="smoke"></label></p>
+            <p><label>캠핑<input type="checkbox" name="hobby" value="camp"></label></p>
+        </fieldset>
+        <button>전송</button>
+    </form>
+</body>
+</html>

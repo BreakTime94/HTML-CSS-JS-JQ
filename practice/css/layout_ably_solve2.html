@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
     <style>
         body {margin: 0; }
         .clearfix::after {display: block; content: ''; clear: both;}
@@ -24,6 +25,10 @@
         @media screen and (min-width:1200px) {
             .item {width: 25%;}
         }
+        
+        .layer-popup-wrapper {position: absolute; top:100px; right: 100px; z-index: 50; display: none;}
+        .layer-popup-wrapper p {margin: 0; background: #abc; padding: 8px; margin-top: -5px;}
+        .layer-popup-wrapper a {float: right; margin-right: 15px; text-decoration: none; color: #222;}
     </style>
 </head>
 <body>
@@ -140,6 +145,12 @@
             <p>[꾸안꾸]보호본능 오버핏, 섬머데일리 빈티지 생지 데님</p>
         </div>
     </div>
+    <div class="layer-popup-wrapper">
+        <div>
+            <img src="https://image.yes24.com/momo/scmfiles/AdvertFiles/202505/2701638_250519035218.jpg" alt="">
+            <p>오늘은 그만보기 <input type="checkbox"><a href="#">닫기</a></p>
+        </div>
+    </div>
     <script>
         window.addEventListener("scroll", function(e) {
             console.log(window.scrollY);
@@ -149,9 +160,28 @@
             }
             else {
                 header.classList.remove("hidden")
-            }
-            
+            } 
         }) 
+        $(".layer-popup-wrapper p a").click(function() {
+            event.preventDefault();
+            $(this).closest(".layer-popup-wrapper").hide();
+            if($(this).prev().prop("checked")) {
+                localStorage.setItem("popupTimer", new Date().getTime());
+            }
+        });
+
+         const timer = localStorage.getItem("popupTimer");
+         console.log(timer);
+
+         if(timer && new Date().getTime() - timer > 1000 * 60 * 60 * 24 || !timer){
+            $(".layer-popup-wrapper").show();
+         }
+
+
+        // 1000ms * 60 * 60 * 24 => 하루
+        // localStorage.setItem("a", 10);
+       
+        
     </script>
 </body>
 </html>

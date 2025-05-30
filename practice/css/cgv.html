@@ -5,34 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .wrapper {margin: 0 auto;}
-        .wrapper div:first-child > img{width: 117px; height: 53px} ;
-        #head p {display: inline-block; margin: 20px 0;}
+        /* 공통 */
+        .wrapper {margin: 0 auto; width:991px}
+        /* header 내 첫번째 div */
+        #head > div > * {display: inline-block;}
+        .wrapper a:first-of-type > img{width: 117px; height: 53px;}
+        #head div {display: inline-block;}
+        /* header 내 두번째 div */
+        #head div:nth-child(2) {float:right;}
+        #head > div:nth-child(2) > div > img {width:36px; height: 36px;}
+        #head > div:nth-child(2) > div {margin-left: 30px; text-align: center;}
+        #head > div:nth-child(2) > div:last-child img {margin: 0;}
+        #head span {display: block;}
+        /* float 해제 */
+        .clearfix {clear: both;}
     </style>
 </head>
 <body>
     <div class="wrapper">
         <img src="">
-        <header id="head">
+        <header id="head" class="clearfix">
             <div>
-                <a href="#"><img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png"></a>
+                <a href="#">
+                    <img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png">
+                </a>
                 <p>DEEP DIVE SPACE</p>
             </div>
-            <a href="#">
-                <img src="">
+            <div>
+                <img src="https://img.cgv.co.kr/WingBanner/2025/0409/17441769177250.jpg">
                 <div>
-                    <img src=""> <span>로그인</span>
+                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"> <span>로그인</span>
                 </div>
                 <div>
-                    <img src=""> <span>회원가입</span>
+                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"> <span>회원가입</span>
                 </div>
                 <div>
-                    <img src=""> <span>MY CGV</span>
+                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"> <span>MY CGV</span>
                 </div>
                 <div>
-                    <img src=""> <span>고객센터</span>
+                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png"> <span>고객센터</span>
                 </div>
-            </a>
+            </div>
         </header>
         <nav>
             
@@ -57,6 +70,5 @@
 
         </main>
     </div>
-
 </body>
 </html>

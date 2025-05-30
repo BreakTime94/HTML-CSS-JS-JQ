@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(function() {
+            $("a").each(function() {
+                console.log($(this).attr("href"), this.href); //getter a 태그 그 자체의 href를 a 태그 전체를 탐색하면서 반환한다.
+                // $(this).attr("title", $(this).text("인생쉽지않네")); //setter 
+                // $(this).attr("title", this.innerText);
+                $(this).attr("title", $(this).html());
+
+                $(this).text("abcd").css("color", "red");
+                console.log($("div:eq(0)").text());
+                console.log($("div:eq(0)").html()); //태그 요소 전부 반환
+
+                $("div:eq(1)").text("<h3>hello</h3>"); //escape code까지 자체 처리
+                $("div:eq(2)").html("<h3>hello</h3>");
+                $("div:eq(3)").html(function(){
+                    return "<mark>추가된 텍스트</mark>"
+                });
+                $("div").html(function(i){ //i index
+                    return "<h2>" + i + "번째 div </h2>"
+                });
+            })
+        });
+    </script>
+</head>
+<body>
+    <p><a href="https://www.naver.com/">네이버</a></p>
+    <p><a href="https://www.google.com/">구글</a></p>
+    <p><a href="https://www.daum.net/">다음</a></p>
+
+    <div>
+        <h1>안녕하세요, <span>hello</span></h1>
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+</body>
+</html>

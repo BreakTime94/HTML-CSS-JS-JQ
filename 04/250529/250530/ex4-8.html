@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $("input[text]").css("background", "red"); 아래 코드와 같은 내용이다.
+            $("input:text").css("background", "red");
+            $("input:password").css("background", "orange");
+            $(":button").css("background", "yellow");
+            $("input:checked + label").css("background", "green");
+            $("option:selected").css("color", "blue");
+            $("textarea:disabled").css("background", "pink");
+            console.log($("div").find("label").text());
+            // 위와 아래는 같은 코드
+            console.log($("div").find(function(){
+                return "label";
+            }).text());
+            $("div:eq(0)").add("div:eq(1)").css("border", "1px solid").end().css("background", "gray");
+
+        })
+    </script>
+</head>
+<body>    
+    <div><input type=""></div> <!-- 그냥써도 기본 type은 text이다. type=""이라고 해도 text로 작용은 하지만 jQuery에서 input:text에는 해당 되지 않는다. --> 
+    <div>
+        <input type="text">
+    </div>
+    <div><input type="password"></div>
+    <div><button>확인</button></div>
+    <div><input type="checkbox" id="css" checked="checked"><label for="css">css</label></div>
+    <div>
+        <select>
+            <option>과목선택</option>
+            <option>javascript</option>
+            <option selected="selected">jQuery</option>
+        </select>
+        <textarea cols="20" rows="5" disabled="disabled">javascript</textarea>
+    </div>
+</body>
+</html>
