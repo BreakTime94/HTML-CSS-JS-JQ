@@ -13,12 +13,24 @@
         #head div {display: inline-block;}
         /* header 내 두번째 div */
         #head div:nth-child(2) {float:right;}
-        #head > div:nth-child(2) > div > img {width:36px; height: 36px;}
+        #head > div:nth-child(2) > div > img {width:36px; height: 36px;} 
         #head > div:nth-child(2) > div {margin-left: 30px; text-align: center;}
-        #head > div:nth-child(2) > div:last-child img {margin: 0;}
+       
         #head span {display: block;}
         /* float 해제 */
         .clearfix {clear: both;}
+        /* 분리선 */
+        #head + div {border-top: 0.3px solid #aaa; opacity: 0.3;}
+        /* nav 일반*/ 
+        #menu {margin: 14px 0;}
+        #menu a {display: inline-block; text-decoration: none; color: #222; margin-right: 30px;}
+        #menu > div > div {display: inline-block; float: right;}
+        #menu > div > div > input {margin: 0; text-align: right;}
+        #menu div:first-child :nth-child(3) {color: red;}
+        /* video */
+        #menu + div {border-top: 2.5px solid red; width: 100vw;}
+        
+       
     </style>
 </head>
 <body>
@@ -32,7 +44,10 @@
                 <p>DEEP DIVE SPACE</p>
             </div>
             <div>
-                <img src="https://img.cgv.co.kr/WingBanner/2025/0409/17441769177250.jpg">
+                    <img src="https://img.cgv.co.kr/WingBanner/2025/0409/17441769177250.jpg">
+                <div>
+                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png"> <span>고객센터</span>
+                </div>
                 <div>
                     <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"> <span>로그인</span>
                 </div>
@@ -42,13 +57,10 @@
                 <div>
                     <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"> <span>MY CGV</span>
                 </div>
-                <div>
-                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png"> <span>고객센터</span>
-                </div>
             </div>
         </header>
-        <nav>
-            
+        <div></div>
+        <nav id="menu" class="clearfix">
             <div>
                 <a href="#">영화</a>
                 <a href="#">극장</a>
@@ -56,15 +68,23 @@
                 <a href="#">스토어</a>
                 <a href="#">이벤트</a>
                 <a href="#">혜택</a>
+                <div>
+                    <input type="text" value="미야자키 하야오 자연의영">
+                    <a href=""><button>검색</button></a>
+                </div>
             </div>
         </nav>
         <div>
-            <img src="" alt="추천 영화이미지 or video">
-            <h1>브링 허 백</h1>
-            <h3>A24 최고 흥행 &lt;톡 투 미&gt; 감독 작품 <br>6월 6일 CGV 단독 개봉</h3>
-            <a href="#"></a>
-            <a href="#"></a>
-            <a href="#"></a>
+            <video src="https://adimg.cgv.co.kr/images/202505/Bring/BringHerBack_1080x608_PC.mp4"></video>
+            <div>
+                <h1>브링 허 백</h1>
+                <h3>A24 최고 흥행 &lt;톡 투 미&gt; 감독 작품 <br>6월 6일 CGV 단독 개봉</h3>
+                <div>
+                    <a href="#"><button>상세보기</button></a>
+                    <a href="#"><button></button></a>
+                    <a href="#"><button></button></a>
+                </div>
+            </div>
         </div>
         <main>
 
