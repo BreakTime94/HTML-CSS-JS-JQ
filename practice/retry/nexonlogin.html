@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @font-face {
+                font-family: 'NEXON Lv1 Gothic OTF';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+        .nlogin, .tlogin a, .ologin a, .etc a {transition: all .3s;}
+        .wrapper{margin: 0 auto; text-align: center; width: 353px;}
+        .wrapper a{text-decoration: none;}
+        .nlogin {display: inline-block; 
+        background: #17191d; color: #fff;
+        width: 353px; padding: 23.5px 0;
+        font-family: 'NEXON Lv1 Gothic OTF';
+        }
+        .nlogin i {display: inline-block; background: url(https://rs.nxfs.nexon.com/home/images/main/set_login.png);
+        width: 68px; height: 13px;
+        }
+        .nlogin:hover{background-color: #07f;}
+
+        .tlogin a {display: inline-block;
+        background: #4a4e57; color: #fff;
+        margin-top: 5px;
+        width: 175px; padding: 16px 0; 
+        font-family: 'NEXON Lv1 Gothic OTF';
+        font-weight: bold; font-size: 13px;
+        }
+        .tlogin a:hover {background-color: #07f;}
+        .tlogin a:nth-child(2) {float: right;}
+        .clearfix::after{content: "" ; display: block; clear: both;}
+        .ologin {size: 353px; color: #9fa1a7; margin-top: 10px;
+        background-color: #f8f9fa; padding: 5px 0; 
+        font-size: 13px; font-family: 'NEXON Lv1 Gothic OTF';
+        font-weight: lighter;
+        }
+        .ologin a {display: inline-block;
+        background: url(https://rs.nxfs.nexon.com/home/images/main/set_login.png) no-repeat;
+        width: 22px; height: 22px; 
+        text-indent: -9999px; background-position: 0 -50px;
+        margin-left: 10px; padding: 5px 0; 
+        }
+        .ologin a:hover {opacity: 0.5;}
+        .ologin a + a{ 
+            background-position: 0 -100px;
+        }
+        .ologin a + a + a{ 
+            background-position: 0 -150px;
+        }
+        .ologin a + a + a + a{ 
+            background-position: 0 -200px; 
+        }
+        .etc{font-family: 'NEXON Lv1 Gothic OTF'; font-size: 12px; margin-top: 10px;}
+        .etc a:nth-child(1) {float: left;}
+        .etc a:nth-child(2) {float: left; margin-left: 7px;}
+        .etc a:nth-child(3) {float: right;} 
+        .etc a:hover {color: #07f;}
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <a href="" class="nlogin">
+            <i></i>
+            ID 로그인
+        </a>
+        <div class="tlogin clearfix">
+            <a href="">일회용 로그인</a>
+            <a href="">QR 로그인</a>
+        </div>
+        <div class="ologin">
+            다른 계정 간편 로그인
+            <a href="">구글</a>
+            <a href="">페이스북</a>
+            <a href="">네이버</a>
+            <a href="">애플</a>
+        </div>
+        <div class="etc clearfix">
+            <a href="">넥슨 ID찾기</a>
+            <a href="">비밀번호 찾기</a>
+            <a href="">회원가입</a>
+        </div>
+    </div>
+</body>
+</html>
