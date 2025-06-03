@@ -4,58 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* 공통 */
-        .wrapper {margin: 0 auto; width:991px}
+        .wrapper {margin: 0 auto;}
+
         /* header 내 첫번째 div */
-        #head > div > * {display: inline-block;}
-        .wrapper a:first-of-type > img{width: 117px; height: 53px;}
-        #head div {display: inline-block;}
+        #headwrapper {text-align: center; width: 1080px; margin: 0 auto;}
+        #headwrapper > div > * {display: inline-block;}
+        #headwrapper div:first-child {float: left;}
+        .wrapper a:first-of-type > img{width: 117px; height: 53px;} 
+        #headwrapper div {display: inline-block;}
+        #headwrapper div p {letter-spacing: 0.25em; font-weight: 280;}
+
         /* header 내 두번째 div */
-        #head div:nth-child(2) {float:right;}
-        #head > div:nth-child(2) > div > img {width:36px; height: 36px;} 
-        #head > div:nth-child(2) > div {margin-left: 30px; text-align: center;}
-       
-        #head span {display: block;}
+        #headwrapper div:nth-child(2) {float:right;}
+        #headwrapper > div:nth-child(2) > div > img {width:36px; height: 36px;} 
+        #headwrapper > div:nth-child(2) > div {margin-left: 30px; text-align: center;}
+        #headwrapper span {display: block;}
+        
         /* float 해제 */
-        .clearfix {clear: both;}
+        .clearfix::after {content: ""; clear: both; display: block;}
+        
         /* 분리선 */
-        #head + div {border-top: 0.3px solid #aaa; opacity: 0.3;}
+        #head + div {border-top: 0.3px solid #aaa; opacity: 0.3; margin-top: 5px;}
+        
         /* nav 일반*/ 
-        #menu {margin: 14px 0;}
-        #menu a {display: inline-block; text-decoration: none; color: #222; margin-right: 30px;}
+        #menu {margin: 14px auto; width:1080px}
+        #menu a {display: inline-block; text-decoration: none; color: #222; margin-right: 30px; font-weight: 600;}
         #menu > div > div {display: inline-block; float: right;}
         #menu > div > div > input {margin: 0; text-align: right;}
         #menu div:first-child :nth-child(3) {color: red;}
+
         /* video */
-        #menu + div {border-top: 2.5px solid red; width: 100vw;}
-        
-       
+        #video {margin: 0 auto; border-top: 2.5px solid red;
+        background-color: black; 
+        }
+        #videowrapper {position: relative; width: 1080px; height: 498px; margin: 0 auto;
+        }
+        video {width: 1080px; height: 498px;}
+        #videowrapper::after{content: ""; position: absolute; background: radial-gradient(circle, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1) 80%);
+        z-index: 3; inset: 0;
+        }
+        #videowrapper > div:nth-of-type(2) {position: absolute; left:50px; top: 150px; 
+            z-index: 5; color: #fff; font-size: 120%;}
+        #videowrapper > div:nth-of-type(2) > h1 {text-shadow: 4px 5px 5px rgba(0, 0, 10, 0.5);}
+
+        /* main 공통*/
+        #main1 {height: 500px; margin: 0 auto; background-color: #eee4; padding-top: 30px;}
+        #movie a {text-decoration: none; display: inline-block; font-size: 1.5em; color: #222;}
+
+        /* 무비 선택창 */
+        #movie > div:first-of-type {margin: 0 auto; width: 1080px; padding-bottom: 30px;}
+        #movie > div:first-of-type a:first-of-type {margin-right: 30px; float: left;}
+        #movie > div:first-of-type a:last-of-type{float: right; text-align: center; font-size: 1em;
+        }
+        #movie div:first-of-type a:last-of-type button{border-radius: 8px; padding: 3px 8px;}
+
+        /* 포스터 */ 
+        .poster {width: 1080px;  margin: 0 auto; position: relative;}
+        .poster > div {position: relative; margin: 0;}
+        .poster i img {width: 170px; height: 234px; border-radius: 6px; position: absolute;}
+        .poster::after {content: "1"; inset: 0; position: absolute; 
+        font-size: 60px; font-style: italic; color: #fff; text-shadow: 3px 2px 1px #444; top: 170px;
+        }
+        .poster > div > i:first-of-type > div {display: none; position: absolute} 
+        .poster > div > i:first-of-type image:hover .poster > div > i:first-of-type > div > a {display: inline-block; color: #eee;}
+
+        /* 포스터 글귀 */
+        .title {position: absolute; margin: 0; left: 2px; top: 250px}
+        .title h3 {margin: 0; text-align: center;}
+        .title {width: 170px; text-align: center; margin: 0;}
+        .title > span:first-of-type {display: inline-block; font-size: 0.8em; margin-right: 15px;}
+        .title > span:last-of-type {display: inline-block; font-size: 0.8em;}
+        .title > img {width: 16px; height: 16px; margin-right: 2px;}
+        .poster > div > i:nth-of-type(2) img {width: 20px; height: 20px; left: 145px; top: 5px;} 
+        .imax i img {width: 35px; height: 7px; border: 1px solid #eee; border-radius: 3px; padding: 1px;}
+        .imax > i:first-of-type > img {left: 125px; top: 192px;}
+        .imax > i:nth-of-type(2) > img {left: 125px; top: 203px; margin-top: 2px;}
+        .imax > i:nth-of-type(3) > img {left: 125px; top: 216px; margin-top: 2px;} 
     </style>
 </head>
 <body>
     <div class="wrapper">
         <img src="">
-        <header id="head" class="clearfix">
-            <div>
-                <a href="#">
-                    <img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png">
-                </a>
-                <p>DEEP DIVE SPACE</p>
-            </div>
-            <div>
-                    <img src="https://img.cgv.co.kr/WingBanner/2025/0409/17441769177250.jpg">
+        <header id="head">
+            <div id="headwrapper" class="clearfix">
                 <div>
-                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png"> <span>고객센터</span>
+                    <a href="#">
+                        <img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png">
+                    </a>
+                    <p>DEEP DIVE SPACE</p>
                 </div>
                 <div>
-                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"> <span>로그인</span>
-                </div>
-                <div>
-                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"> <span>회원가입</span>
-                </div>
-                <div>
-                    <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"> <span>MY CGV</span>
+                        <img src="https://img.cgv.co.kr/WingBanner/2025/0409/17441769177250.jpg">
+                    <div>
+                        <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginCustomer.png"> <span>고객센터</span>
+                    </div>
+                    <div>
+                        <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginPassword.png"> <span>로그인</span>
+                    </div>
+                    <div>
+                        <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginJoin.png"> <span>회원가입</span>
+                    </div>
+                    <div>
+                        <img src="https://img.cgv.co.kr/R2014/images/common/ico/loginMember.png"> <span>MY CGV</span>
+                    </div>
                 </div>
             </div>
         </header>
@@ -74,21 +128,80 @@
                 </div>
             </div>
         </nav>
-        <div>
-            <video src="https://adimg.cgv.co.kr/images/202505/Bring/BringHerBack_1080x608_PC.mp4"></video>
-            <div>
-                <h1>브링 허 백</h1>
-                <h3>A24 최고 흥행 &lt;톡 투 미&gt; 감독 작품 <br>6월 6일 CGV 단독 개봉</h3>
+        <div id="video">
+            <div id="videowrapper">
+                <div></div>
+                <video autoplay muted>
+                    <source src = "https://adimg.cgv.co.kr/images/202505/Bring/BringHerBack_1080x608_PC.mp4">
+                </video>
                 <div>
-                    <a href="#"><button>상세보기</button></a>
-                    <a href="#"><button></button></a>
-                    <a href="#"><button></button></a>
+                    <h1>브링 허 백</h1>
+                    <h3>A24 최고 흥행 &lt;톡 투 미&gt; 감독 작품 <br>6월 6일 CGV 단독 개봉</h3>
+                    <div class="videofunction">
+                        <a href="#"><button>상세보기</button></a>
+                        <a href="#"><button>정지</button></a>
+                        <a href="#"><button>음소거</button></a>
+                    </div>
                 </div>
             </div>
         </div>
-        <main>
-
+        <main id="main1">
+            <div id="movie">
+                <div class="clearfix">
+                    <a href="">무비차트</a>
+                    <a href="">상영예정작</a>
+                    <a href=""><button>전체보기 &nbsp;&nbsp;&nbsp; &gt;</button></a>
+                </div>
+                <div id="poster" class="poster">
+                    <div>
+                        <i> 
+                            <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89315/89315_320.jpg">
+                            <div>
+                                <a href="">상세보기</a>
+                                <a href="">예매하기</a>
+                            </div>
+                        </i>
+                        <i id="age" class="age">
+                            <img src="data:image/svg+xml;charset=UTF-8, %3csvg width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23ageAll)'%3e%3cpath d='M17.745 20H2.256A2.256 2.256 0 0 1 0 17.745V2.255A2.255 2.255 0 0 1 2.256 0h15.49A2.253 2.253 0 0 1 20 2.255v15.49A2.254 2.254 0 0 1 17.745 20Z' fill='%23269C56'/%3e%3cpath d='M5.74 15.076 5.5 13.56H3.748l-.24 1.516H1.24v-.027L3.383 4.898h2.47l2.144 10.145v.027l-2.256.006ZM4.627 8.18l-.56 3.462h1.116L4.626 8.18ZM8.402 15.078V4.904h2.264v8.136h2.663v2.038H8.402ZM13.808 15.076V4.904h2.263v8.136h2.664v2.038l-4.927-.002Z' fill='%23fff'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='ageAll'%3e%3cpath fill='%23fff' d='M0 0h20v20H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e">
+                        </i>
+                        <div id="imax" class="imax">
+                            <i><img src="https://img.cgv.co.kr/R2014/images/common/logo/imax_white.png"></i>
+                            <i><img src="https://img.cgv.co.kr/R2014/images/common/logo/forDX_white.png"></i>
+                            <i><img src="https://img.cgv.co.kr/R2014/images/common/logo/screenx_white.png"></i>
+                        </div>
+                        <div class="title">
+                            <h3>드래곤 길들이기</h3>
+                            <img src="https://img.cgv.co.kr/R2014/images/common/egg/eggGoldeneggPreegg.png">
+                            <span>99%</span>
+                            <span>예매율 21.9%</span>   
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+        <main id="main2">
+            <div id="event">
+    
+            </div>
+        </main>
+        <div id="theater">
+
+        </div>
     </div>
+    <script>
+        document.querySelector(".videofunction > a:nth-of-type(2)").addEventListener("click", function(e) {
+            event.preventDefault();
+            console.log("hi");
+            const video = document.querySelector("#videowrapper > video");
+            // $("#videowrapper > video").paused ? $("#videowrapper > video").play() : $("#videowrapper > video").pause()
+            if(video.paused) {
+                video.play();
+                $(".videofunction > a:nth-of-type(2) > button").text("정지")
+            } else {
+                video.pause();
+                $(".videofunction > a:nth-of-type(2) > button").text("재생")
+            }
+        });
+    </script>
 </body>
 </html>
