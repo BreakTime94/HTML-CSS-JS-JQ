@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $("<h1>추가된 녀석</h1>").appendTo("body")
+            $("button").click(function(){
+                $("<h1>버튼으로 추가된 녀석</h1>").appendTo("body");
+                // $("h1").click(function(){
+                //     console.log($(this).text());
+                // }) 
+            })
+            //동적 이벤트 같은 경우는 되게 불합리하게 이벤트를 실행하여야 한다. 
+            //버튼을 통해서 생성된 친구는 클릭했을 때, console 출력이 되지 않는다.
+
+            const f = function() {
+                console.log(event.type);
+            };
+            $("button").on("click dblclick", f);
+            $("button").off("click", f);
+            $("body").on("click", "h1", function(){
+                 console.log($(this).text()); // this는 "h1"을 의미한다. 
+                 //댓글을 비동기로 가져오는 것 등
+            })
+
+            $("h3").on("click", function(){ // 이건 one 이랑 같은 효과다
+                console.log($(this).text());
+                $(this).off("click");
+            })
+
+            $("h3").one("click", function(){
+                console.log("one으로 콘솔출력 by 말하는 감자");
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>추가</button>
+    <h1>원래 있던 녀석</h1> <!--정적 컨텐츠-->
+    <h3>나는 말하는 감자야</h3>
+</body>
+</html>

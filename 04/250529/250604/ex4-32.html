@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .outer{padding: 50px; width: 100px; height: 100px; background: orange;}
+        .outer div{width: 100px; height: 100px; background: red;}
+        .outer:hover{background-color: blue;}
+    </style>
+    <script>
+        $(function(){
+            // $(".outer").on("mouseover", function(){
+            //     $("<h1>").html("over").appendTo("body");
+            // }).on("mouseenter", function(){
+            //     $("<h1>").html("enter").appendTo("body");
+            // })
+            $(".outer").hover(function(){
+                $("<h1>").html("enter").appendTo("body");
+            }, function(){
+                $("<h1>").html("leave").appendTo("body");
+            })
+            $(".outer").on("input", function(){
+                console.log($(this).val());
+            }); // 이렇게 쓰면 폼 관련 input 이벤트이다.
+            $("textarea").val("값 초기화");
+        });
+        //over는 outer에 처음 들어갈때는 enter가 작동을 하고 
+        // outer나 그 안에 있는 요소에 마우스가 접근할 때는 over이다.  
+        //enter만 써라, enter에 반댓말은 mouseleave다.
+    </script>
+</head>
+<body>
+    <div class="outer">
+        <div></div>
+    </div>
+    <input type="text">
+    <textarea name="" id="">abcd</textarea> <!--늘렸다가 줄였다가 텍스트 창-->
+</body>
+</html>

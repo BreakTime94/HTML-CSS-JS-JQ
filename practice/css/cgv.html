@@ -7,6 +7,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* 공통 */
+        * {margin: 0; padding: 0; list-style: none; text-decoration: none;}
         .wrapper {margin: 0 auto;}
 
         /* header 내 첫번째 div */
@@ -52,7 +53,7 @@
 
         /* main 공통*/
         #main1 {height: 500px; margin: 0 auto; background-color: #eee4; padding-top: 30px;}
-        #movie a {text-decoration: none; display: inline-block; font-size: 1.5em; color: #222;}
+        #movie > div:first-of-type > a {text-decoration: none; display: inline-block; font-size: 1.5em; color: #222;}
 
         /* 무비 선택창 */
         #movie > div:first-of-type {margin: 0 auto; width: 1080px; padding-bottom: 30px;}
@@ -66,10 +67,14 @@
         .poster > div {position: relative; margin: 0;}
         .poster i img {width: 170px; height: 234px; border-radius: 6px; position: absolute;}
         .poster::after {content: "1"; inset: 0; position: absolute; 
-        font-size: 60px; font-style: italic; color: #fff; text-shadow: 3px 2px 1px #444; top: 170px;
+        font-size: 60px; font-style: italic; color: #fff; text-shadow: 3px 2px 1px #444; top: 163px;
         }
-        .poster > div > i:first-of-type > div {display: none; position: absolute} 
-        .poster > div > i:first-of-type image:hover .poster > div > i:first-of-type > div > a {display: inline-block; color: #eee;}
+        .hover {display: none; position: absolute; width: 170px; height: 234px; border-radius: 6px;
+        } 
+        .hover > a {text-decoration: none; display: inline-block; font-size: 1em; }
+        .hover a:first-of-type {position: absolute; top:80px; left:38px;}
+        .hover a:nth-of-type(2) {position: absolute; top:120px; left:38px;}
+        .poster:hover .hover {display: block; background: #666d;}
 
         /* 포스터 글귀 */
         .title {position: absolute; margin: 0; left: 2px; top: 250px}
@@ -85,6 +90,13 @@
         .imax > i:nth-of-type(3) > img {left: 125px; top: 216px; margin-top: 2px;} 
     </style>
 </head>
+..
+
+
+
+
+
+<div class="..."></div>
 <body>
     <div class="wrapper">
         <img src="">
@@ -156,9 +168,9 @@
                     <div>
                         <i> 
                             <img src="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000089/89315/89315_320.jpg">
-                            <div>
-                                <a href="">상세보기</a>
-                                <a href="">예매하기</a>
+                            <div class="hover">
+                                <a href=""><button>상세보기</button></a>
+                                <a href=""><button>예매하기</button></a>
                             </div>
                         </i>
                         <i id="age" class="age">

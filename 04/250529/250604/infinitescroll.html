@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1 {border: 1px solid; padding: 30px; margin: 30px 0;}
+    </style>
+    <!-- 스크롤바의 특정 시점에서 복사해서 가져오는 것 해보기 -->
+     <script>
+        //글리치 지금 클론하는 것을 1초 뒤에 진행하도록 의도적으로 딜레이를 주는 방식 디바운스
+        let isLoading = false;
+        function loadMoreContent(){
+            if(isLoading) return;
+            isLoading = true;
+            if($("body h1").length < 100) {
+                $("h1").css("opacity", "0.3");
+                setTimeout(function() {
+                    const $h1 = $("body h1").clone(true).each(function(i){ //clone(true)가 있으면, 이벤트도 같이 복제
+                        //clone(true, true) 자손이벤트까지 같이 복사
+                        const idx = $("body h1").length + i + 1;
+                        $(this).find("span").text(idx);
+                    }).appendTo("body");
+                    isLoading = false;
+                    $("h1").css("opacity", "1");
+                }, 1000);
+            } else {
+                isLoading = false;
+            }
+        }
+        $(function(){
+            $("h1").click(function(){
+                console.log($(this).text());
+            });
+            //onscroll 이라는 속성을 이용해서 스크롤의 y값을 확인하여야 한다. 
+            $(window).scroll(function(){ //문서 높이를 이용해서 확인한다.
+                console.log($(this).scrollTop());
+                console.log("document height : " + $(document).height());
+                console.log("window height : " + $(window).height());
+                if($(document).height() - $(this).scrollTop() - $(window).height() < 100 ){
+                    loadMoreContent();
+                }
+            });
+            $("button").click(function(){
+                console.log("document height : " + $(document).height());
+                console.log("window height : " + $(window).height());
+                
+            });
+            // document height = window height + window scrollTop 최하단 기준
+        });
+     </script>
+</head>
+<body>
+    <button>문서 높이 계산</button>
+    <h1>요소<span>1</span></h1>
+    <h1>요소<span>2</span></h1>
+    <h1>요소<span>3</span></h1>
+    <h1>요소<span>4</span></h1>
+    <h1>요소<span>5</span></h1>
+    <h1>요소<span>6</span></h1>
+    <h1>요소<span>7</span></h1>
+    <h1>요소<span>8</span></h1>
+    <h1>요소<span>9</span></h1>
+    <h1>요소<span>10</span></h1>
+</body>
+</html>

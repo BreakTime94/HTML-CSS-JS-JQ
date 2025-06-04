@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <Style>
+        body {margin: 0; background: #eee;}
+        .gnb-wrapper {position: relative; padding-top: 1px; margin-top: 8px;}
+        .gnb-wrapper::before {position: absolute; content: ''; display: block;
+        border-top: 1px solid #a58e8e; height: 1px; top:4px; width: 100%;
+        }
+        .gnb-wrapper::after {content: ""; display: block; height: 2px; background-color: #fb4357;
+        position: absolute; width: 100%; top:60px
+        }
+        a {color: #333; text-decoration: none;}
+        .gnb {position: relative; width: 980px; margin: 0 auto;}
+        .gnb ul {list-style: none;} /* you are welcome bro!*/
+        .gnb > ul {list-style: none; padding: 0;}
+        .gnb > ul > li {display: inline-block; width: 162px; padding: 20px 0; float:left;}
+        .gnb > ul > li span {position: absolute; top:0;}
+        .gnb > ul > li:first-child {width: 137px;}
+        .gnb > ul > li:last-child {width: 195px;}
+
+        .gnb > ul > li:nth-child(1) span {left:0px;} 
+        .gnb > ul > li:nth-child(2) span {left:80px;} 
+        .gnb > ul > li:nth-child(3) span {left:160px;} 
+        .gnb > ul > li:nth-child(4) span {left:240px;} 
+        .gnb > ul > li:nth-child(5) span {left:335px;} 
+        .gnb > ul > li:nth-child(6) span {left:430px;}
+        
+        .gnb > ul > li span a {display: inline-block; color: #333; font-weight: bold;
+            text-decoration: none;
+        }
+        .gnb > ul > li:nth-child(3) span a {color:#e00;}
+        .gnb > ul > li > ul > li > a {font-size: 14px;}
+        li ul {padding: 25px 0 0 25px;}
+        li:first-child ul {padding-left: 0;}
+        li ul li:nth-child(1) {padding-top: 18px;}
+        li ul li:nth-child(1) a {font-weight: bold;}
+        li ul li:nth-child(2) {margin-top: 8px;}
+        li ul li a:hover {text-decoration: underline;}
+        li ul::after {content: ''; display: block; clear: both;}
+        .gnb > ul ul {position: relative; margin-top: 5px;}
+        .gnb > ul > li:not(:first-child) > ul::before {content: ''; display: block; position: absolute;
+        left: 0; top: 45px; width: 1px; height: 250px; background-color: #eee; opacity: 0.8;
+        }
+        .nav-bg1 {position: absolute; width: 100%; background: #fff; height: 59px;
+        top: 0;
+        }
+        .nav-bg2 {position: absolute; width: 100%; background: #fff; height: 316px;
+        top: 61px; display: none;
+        }
+        ul ul { position: absolute; display: none;}
+    </Style>
+    <script>
+        $(function(){
+            $("span > a").on("mouseenter focus", function(){
+                $("ul ul, .nav-bg2").stop().slideDown();
+            });
+            $(".nav-bg1, .nav-bg2").on("mouseleave", function(){
+                $("ul ul, .nav-bg2").stop().slideUp();
+            });
+            // $(".gnb").on()
+            // $("ul ul, .nav-bg2")
+        })
+    </script>
+</head>
+<body>
+    <div class="gnb-wrapper">
+        <div class="nav-bg1"></div>
+        <div class="nav-bg2"></div>
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <span><a href="">영화</a></span>
+                    <ul>
+                        <li><a href="">영화</a></li>
+                        <li><a href="">무비차트</a></li>
+                        <li><a href="">아트하우스</a></li>
+                        <li><a href="">ICECON</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span><a href="">극장</a></span>
+                    <ul>
+                        <li><a href="">극장</a></li>
+                        <li><a href="">CGV 극장</a></li>
+                        <li><a href="">특별극장</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span><a href="">예매</a></span>
+                    <ul>
+                        <li><a href="">예매</a></li>
+                        <li><a href="">빠른예매</a></li>
+                        <li><a href="">상영스케줄</a></li>
+                        <li><a href="">English Ticketing</a></li>
+                        <li><a href="">English Schedule</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span><a href="">스토어</a></span>
+                    <ul>
+                        <li><a href="">스토어</a></li>
+                        <li><a href="">패키지</a></li>
+                        <li><a href="">영화관람권</a></li>
+                        <li><a href="">기프트카드</a></li>
+                        <li><a href="">콤보</a></li>
+                        <li><a href="">팝콘</a></li>
+                        <li><a href="">음료</a></li>
+                        <li><a href="">스낵</a></li>
+                        <li><a href="">씨네샵</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span><a href="">이벤트</a></span>
+                    <ul>
+                        <li><a href="">이벤트</a></li>
+                        <li><a href="">SPECIAL</a></li>
+                        <li><a href="">영화/예매</a></li>
+                        <li><a href="">멤버십/CLUB</a></li>
+                        <li><a href="">CGV 극장별</a></li>
+                        <li><a href="">제휴할인</a></li>
+                        <li><a href="">당첨자 발표</a></li>
+                        <li><a href="">종료된 이벤트</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <span><a href="">혜택</a></span>
+                    <ul>
+                        <li><a href="">혜택</a></li>
+                        <li><a href="">CGV 할인정보</a></li>
+                        <li><a href="">CLUB 서비스</a></li>
+                        <li><a href="">VIP 라운지</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <h1>밀려나지 말아라1</h1>
+        <h1>밀려나지 말아라2</h1>
+        <h1>밀려나지 말아라3</h1>
+        <h1>밀려나지 말아라4</h1>
+        <h1>밀려나지 말아라5</h1>
+        <h1>밀려나지 말아라6</h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1 {width: 300px; background: crimson;}
+    </style>
+    <script>
+        $(function(){
+            $("div:eq(0) button:eq(0)").click(function(){
+                $("h1:eq(0)").show(1000);
+            });
+            $("div:eq(0) button:eq(1)").click(function(){
+                $("h1:eq(0)").hide("normal", function(){
+                    console.log("hide done!");
+                });
+            });
+            $("div:eq(0) button:eq(2)").click(function(){
+                $("h1:eq(0)").toggle(500);
+            });
+            //--------------------------
+            $("div:eq(1) button:eq(0)").click(function(){
+                $("h1:eq(1)").css("color", "red").slideDown();
+            });
+            $("div:eq(1) button:eq(1)").click(function(){
+                $("h1:eq(1)").slideUp("fast", function(){
+                    console.log("slideUp done!");
+                });
+            });
+            $("div:eq(1) button:eq(2)").click(function(){
+                $("h1:eq(1)").slideToggle(500);
+            });
+            
+            $("div:eq(2) button:eq(0)").click(function(){
+                $("h1:eq(2)").fadeIn(300);
+            });
+            $("div:eq(2) button:eq(1)").click(function(){
+                $("h1:eq(2)").fadeOut("slow", function(){
+                    console.log("fadeOut done!");
+                });
+            });
+            $("div:eq(2) button:eq(2)").click(function(){
+                $("h1:eq(2)").fadeToggle(750);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button>show</button><button>hide</button><button>toggle</button>
+        <h1>첫번째 요소</h1>
+    </div>
+    <div>
+        <button>slidedown</button><button>slideup</button><button>slidetoggle</button>
+        <h1>두번째 요소</h1>
+    </div>
+    <div>
+        <button>fadein</button><button>fadeout</button><button>fadetoggle</button>
+        <h1>세번째 요소</h1>
+    </div>
+</body>
+</html>

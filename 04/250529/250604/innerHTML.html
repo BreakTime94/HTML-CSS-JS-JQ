@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        h1 {padding: 30px; margin: 30px 0; border: 1px solid;}
+    </style>
+    <script>
+        function addElem(){
+            $("body h1:last-of-type").clone(true).text();
+        }
+        $(function(){
+            $("body button:nth-of-type(1)").click(function(){
+                console.log($(this).text());
+                // $("body").html(function(i, cur){
+                //     return cur + "<h1>추가된요소<span>1</span></h1>";
+                // });
+                $("<h1>추가된요소</h1>").append(function(){
+                    return $("<span>").html($("h1").length + 1);
+                }).appendTo("body");
+            })
+            $("body button:nth-of-type(2)").click(function(){
+                console.log($(this).text());
+                $("h1:last").remove();
+            })
+            $("body button:nth-of-type(3)").click(function(){
+                console.log($(this).text());
+                $("body").empty();
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>추가</button>
+    <button>제거</button>
+    <button>전체 제거</button>
+    <!-- <h1>추가된요소<span>1</span></h1> -->
+</body>
+</html>
