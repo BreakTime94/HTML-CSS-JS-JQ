@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src = "https://momentjs.com/downloads/moment.js"></script> 
+    <style>
+        #sortable {list-style: none; margin-bottom: 50px; border: 0; padding: 0;
+        cursor: move;
+        }
+        #sortable li {border: 1px solid black; width: 200px; text-align: center;
+        display: inline-block; 
+        }
+        div {margin-bottom: 30px;}
+        h1 {cursor: pointer; border: 1px solid black;}
+    </style>
+    <script>
+        $(function(){
+            $("#sortable").sortable();
+            $("div").accordion();
+            setInterval( () => {
+                $("#moment").text(moment().format('yyyy-MM-DD hh:mm:ss'));
+            }, 1000);
+        });
+        
+       
+    </script>
+</head>
+<body>
+    <ul id="sortable">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+    </ul>
+    <div>
+        <h1>1</h1>
+        <p>말하는감자1</p>
+        <h1>2</h1>
+        <p>말하는감자2</p>
+        <h1>3</h1>
+        <p>말하는감자3</p>
+        <h1>4</h1>
+        <p>말하는감자4</p>
+    </div>
+    <h2 id="moment"></h2>
+
+</body>
+</html>
