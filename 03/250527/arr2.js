@@ -6,7 +6,7 @@ const evens = [1, 2, 3, 4].filter(v => v % 2 === 0);
 console.log(evens);
 //find
 
-const firstEven = [1, 3, 4, 6].find(v => v % 2 === 0);
+const firstEven = [1, 3, 4, 6].find(v => v % 2 === 0); // 조건에 맞는 것 중에 인덱스 값이 낮은 친구를 반환
 console.log(firstEven);
 
 //reduce (fn, 초기값)
@@ -16,8 +16,8 @@ const sum = [1, 2, 3, 4].reduce((prev, cur) => prev + cur, 0); //차원을 줄�
 console.log(sum);
 
 //some, every >> boolean
-console.log([1, 2, 3].some(v => v % 2 === 0)); // 배열요소의 일부가 짝수인지
-console.log([1, 2, 3].every(v => v % 2 === 0)); //배열요소의 전체가 짝수인지
+console.log([1, 2, 3].some(v => v % 2 === 0)); // 배열요소의 일부가 짝수인지 ||
+console.log([1, 2, 3].every(v => v % 2 === 0)); //배열요소의 전체가 짝수인지 &&
 
 //includes
 console.log([1, 2, 3].includes(1));

@@ -16,7 +16,12 @@
     $(function(){
       document.querySelector("#btn-greet").addEventListener("click",function(){
         console.log("hi");
-
+        
+        if($("#username").val().length >= 5) {
+          console.log("이름이 너무 긴걸요?");
+          $("#greeting").html("이름이 너무 긴걸요?");
+          return;
+        }
         document.querySelector("#greeting").innerHTML = document.querySelector("#username").value + "님 환영합니다!";
         //제이쿼리 함수는 val(), 자바스크립트는 value
       })
@@ -50,9 +55,33 @@
         event.preventDefault();
         window.open(this.href);
       })
+      $("#btn-color").click(function(){
+        console.log("hi4");
+        $("#color-box").css("background-color","yellow");
+      })
 
+      $("#item-list li").click(function(){
+        $("#item-list > li").toggleClass("highlight");
+      })
+
+       
+
+      setTimeout(function(){
+        $("#page-title").slideUp();
+      }, 2000);
+
+      // const items = $("#item-list > li");
+      // items 
+      $("#item-list > li").html(function(){
+        return `${$(this).text()} (${this.dataset.price}원)`
+      })
+      
+
+      
+      // $("#page-title").setTimeout(() => {
+      //   this.fadeIn(2000);
+      // }, 2000);
     })
-    
   </script>
 </head>
 <body>

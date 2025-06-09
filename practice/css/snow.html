@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" integrity="sha512-pmAAV1X4Nh5jA9m+jcvwJXFQvCBi3T17aZ1KWkqXr7g/O2YMvO8rfaa5ETWDuBvRq6fbDjlw4jHL44jNTScaKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        /* 전체 공통 */
+        body {margin: 0; padding: 0; list-style: none;}
+        /* header */
+        .header {display: flex;  align-items: center; justify-content: flex-start;
+        background-color: white; padding: 15px 0;
+        }
+        header {position: fixed; width: 100%; z-index: 5;}
+        .header > a {margin: 0 30px 0 100px; text-decoration: none;}
+        .header > a > h2 {margin: 0;}
+        .header a {text-decoration: none; text-align: center; margin-right: 15px; color: black;}
+        .header > a:hover {cursor: pointer;}
+        .header > div > a:hover {text-decoration: underline; cursor: pointer;}
+        .header > div:nth-of-type(2) {margin-left: auto; margin-right: 100px;}
+        /* main 공통 */
+        main {padding-top: 65px;}
+        /* 스노우와 함께할 인재를 기다립니다. */
+        main > div:nth-of-type(2) {text-align: center; margin: 15px 0; padding: 65px 0; background-color: white;}
+        main > div:nth-of-type(2) > h2 {margin: 0; font-weight: 500; font-size: 28px;}
+        main > div:nth-of-type(2) > a {display: inline-block; margin-top: 30px; display: flex; justify-content: center; align-items: center;
+        text-decoration: none; width: 305px; margin: 30px auto;}
+        main > div:nth-of-type(2) > a > button {border-radius: 60px; border: transparent;
+        font-family: sans-serif; font-size: 2em; background-color: #00cdf5; color: white;
+        padding: 20px 55px; cursor: pointer; 
+        }
+        /* Teams 공통 및 제목*/
+        .teams {background-color: #fafafa;}
+        .teams > div {max-width: 1200px; width: 100%; margin: 0 auto;}
+        .teams > div > div:first-of-type {display: flex; justify-content: space-between;}
+        .teams > div > * {margin: 0;}
+        .teams > div > h1 {font-size: 64px;}
+        .teams > div > div:first-of-type > p {font-size: 22px; font-weight: 550;}
+
+        /* 기업 가치 4가지 */
+        .teams > div > ul {list-style: none; padding: 0; margin: 0 auto; text-align: center; 
+        }
+        .teams > div > ul > li {display: inline-block;}
+
+        
+
+    </style>
+    <script>
+        $(function(){
+            
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href=""><h2><strong>SNOW</strong> Careers</h2></a>
+            <div>
+                <a href="">Teams</a>
+                <a href="">People</a>
+                <a href="">Benefits</a>
+            </div>
+            <div>
+                <a href="">Jobs</a>
+                <a href="">Login</a>
+                <a href="">FAQ</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="video">
+            <video src="https://recruit.pstatic.net/cdn-vod/snow/SNOW_careers.mp4" autoplay muted loop></video>
+        </div>
+        <div>
+            <h2>스노우와 함께할 인재를 기다립니다.</h2>
+            <a href=""><button>View Careers</button></a>
+        </div>
+        <div class="teams">
+            <div>
+                <h1>Teams</h1>
+                <div>
+                    <p>서로 다른 사람들이 모여 한 방향으로 나아갑니다.</p>
+                    <a href="">More ></a>
+                </div>
+                <ul>
+                    <li><span>Tech</span></li>
+                    <li>글로벌 No.1 혁신 서비스를 만듭니다</li>
+                </ul>
+                <ul>
+                    <li><span>Design</span></li>
+                    <li>새로운 사용자 경험을 디자인합니다.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
