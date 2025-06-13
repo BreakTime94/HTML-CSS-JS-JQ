@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.20.1/ckeditor.js" integrity="sha512-zFNDGGU5T3I464vTJn5SupfBJEoxFa7oa5BRkQjm409ORBe1U4f7cpbylDdV21yrmjmYKo3Y0sPTxR9kBgSkvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
 </head>
 <body>
     <!--header-->
@@ -20,8 +22,8 @@
     <nav>
         <ul class="container p-0">
             <li><a href="board?cno=1">갤러리</a></li>
-            <!-- <li><a href="board?cno=2">자유게시판</a></li> -->
             <li><a href="board.html">자유게시판</a></li>
+            
             <li><a href="board?cno=3">Q&amp;A</a></li>
             <li><a href="board?cno=4">자료실</a></li>
         </ul>
@@ -30,26 +32,24 @@
     <!--nav-->
     <!--content-->
     <main>
-        <div class="content float-start">
-            <div class="slider">
-                <img src="https://bxslider.com/assets/plant-bd76206132f914fc54fd28f9794f7fe346bb8b9a9d16dd5de830b93f365eea9c.jpg" alt="슬라이더이미지">
-                <img src="https://bxslider.com/assets/daisies-aef04136667e60d9190943f4c6cd605043e67188247ffe928500edfd29b0a158.jpg" alt="슬라이더이미지">
-                <img src="https://bxslider.com/assets/succulents-7b5637dbc01af703069905a7991d9e7e7d27c680fa885fe3d6c713c1f77c0f92.jpg" alt="슬라이더이미지">
+        <div class="small border-bottom border-3 border-primary p-0 pb-2"><a href="" class="small"><span class="text-primary">자유게시판</span> 카테고리</a></div>
+        <div class="small p-0 py-2">
+            <input placeholder="title" class="form-control" name="title" id="title" >  
+        </div>
+        <div class="p-0 py-3 ps-1 small border-bottom border-1 border-muted">
+            <textarea name="content" id="editor1" class="form-control resize-none"></textarea>
+        </div>
+        <div class="p-0 py-2 bg-light small border-top border-2 border-muted">
+            <span class="px-2"></span>
+            <a href="" class="text-muted small">board.html</a>
+            <span class="float-end text-muted small me-3">2025-06-13 11:20</span>
+        </div>
+        <div>
+            <button class="btn btn-secondary btn-sm"><i class="fa-solid fa-list-ul"></i> 목록</button>
+            <div class="float-end">
+                <button class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-pen-fancy"></i> 글쓰기</button>
             </div>
         </div>
-        <aside class="float-start">
-            <div class="account">
-                <p>네이버를 더 안전하고 편리하게 이용하세요</p>
-                <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"><i>NAVER</i>로그인</a>
-                <div>
-                    <a href="https://nid.naver.com/user2/api/route?m=routeIdInquiry">아이디 찾기</a>
-                    <i></i>
-                    <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry">비밀번호 찾기</a>
-                    <i></i>
-                    <a href="https://nid.naver.com/nidregister.form?url=https%3A%2F%2Fwww.naver.com">회원가입</a>
-                </div>
-            </div>
-        </aside>
     </main>
     </div>
     <!--footer-->
@@ -75,6 +75,14 @@
                 $(".arrow-area i").fadeOut(300);
             }
         });
+        window.onload = function(){
+            CKEDITOR.replace('editor1', {
+                language: 'ko',
+                height: 400
+            });
+
+        };
+        
     </script>
 </body>
 </html>
