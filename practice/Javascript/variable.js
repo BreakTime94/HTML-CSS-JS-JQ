@@ -20,6 +20,15 @@ console.log(sum)
 console.log(typeof +sum)
 console.log(sum + 0)
 
-let c;
 
-console.log(c = 3)
+var x, y, z;
+
+x = 1, y = 2, z = 3;
+
+console.log(x, y, z);
+
+let o = {a : 1, b: 3};
+
+delete o.a;
+
+console.log(o);
