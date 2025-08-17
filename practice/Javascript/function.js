@@ -112,7 +112,43 @@ console.log(person.fullName);
 console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
 console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
 
+Object.freeze(person);
+console.log(Object.getOwnPropertyDescriptor(person, "firstName"));
 
+console.log("========17장 생성자 함수에 의한 객체 생성======")
+
+const strObj = new String("Lee");
+
+console.log(strObj)
+console.log(Object.keys(strObj));
+
+console.log(strObj[0]);
+console.log(strObj[1]);
+console.log(strObj[2]);
+
+strObj.name = "잘 자";
+console.log(strObj);
+console.log(Object.keys(strObj));
+
+console.log(Object.getOwnPropertyDescriptors(strObj));
+
+const strObj2 = "Lee";
+
+console.log(Object.keys(strObj2));
+
+const str = "Lee";
+str[0] = "K";
+console.log(str);
+
+const number = new Number(123);
+
+console.log(typeof number);
+console.log(number);
+console.log(number[0]);
+console.log(number[1]);
+console.log(number[2]);
+number.name = "숫자"
+console.log(number)
 
 
 
