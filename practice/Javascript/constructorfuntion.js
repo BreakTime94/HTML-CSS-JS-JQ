@@ -40,3 +40,5 @@ function sum() { //arguments 는 유사 배열 객체지만 배열 메서드를 
 
 console.log(sum(1, 2));
 console.log(sum(1, 2, 3));
+
+//ECMAScript에서 프로토 타입 체이닝에 대해서 알아보고, 함수 객체는 결국 Function의 생성자 함수를 통해서 만들어진다.
